@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="PYTHON_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/genlot_vlt/common" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/genlot_vlt/pages" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/genlot_vlt/static" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/genlot_vlt/flows" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/genlot_vlt/db" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/genlot_vlt/cases" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/genlot_vlt" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/cases" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/common" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/cases/BusinessManagement" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/.idea" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/genlot_vlt2" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/genlot_vlt2/cases" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/genlot_vlt2/common" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/genlot_vlt2/db" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/genlot_vlt2/flows" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/genlot_vlt2/interface_common" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/genlot_vlt2/pages" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/genlot_vlt2/pages/Business_management" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/genlot_vlt2/pages/Business_management/Annual_Development_Plan" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/genlot_vlt2/pages/Business_management/Basic_Infomanagement" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/genlot_vlt2/pages/Business_management/Basic_Infomanagement/upload" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/genlot_vlt2/pages/Business_management/Business_Processing" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/genlot_vlt2/pages/Business_management/card_balance_page" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/genlot_vlt2/pages/Business_management/channel_list" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/genlot_vlt2/pages/Business_management/channel_resource_manage_page" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/genlot_vlt2/pages/Business_management/channel_terminal_manage_page" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/genlot_vlt2/pages/Business_management/game_public_mange_page" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/genlot_vlt2/pages/Business_management/game_store_manage_page" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/genlot_vlt2/pages/Business_operation" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/genlot_vlt2/pages/Business_operation/lottery_manage_page" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/genlot_vlt2/pages/Business_operation/member_manage_page" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/genlot_vlt2/pages/Business_operation/permission_maintain_page" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/genlot_vlt2/pages/Customer_service_system" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/genlot_vlt2/pages/System_management" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/genlot_vlt2/static" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/genlot_vlt2/static/data" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/genlot_vlt2/static/images" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/genlot_vlt2/static/install" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/genlot_vlt2/static/interface_data" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/genlot_vlt2/static/report" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/genlot_vlt2/static/upload" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/genlot_vlt2/cases/interface_case" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/genlot_vlt2/cases/ServiceSystem" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/genlot_vlt2/cases/system_process" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/genlot_vlt2/cases/SystemManagement" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/genlot_vlt2/cases/SystemManagement/data_disc" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/genlot_vlt2/cases/SystemManagement/role_list" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/genlot_vlt2/cases/SystemManagement/s_institution" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/genlot_vlt2/cases/SystemManagement/user_list" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/genlot_vlt2/cases/BusinessManagement" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/genlot_vlt2/cases/BusinessManagement/business_process_case" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/genlot_vlt2/cases/BusinessManagement/card_balance" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/genlot_vlt2/cases/BusinessManagement/channel_Business" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/genlot_vlt2/cases/BusinessManagement/channel_resource1" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/genlot_vlt2/cases/BusinessManagement/channel_resource_manage" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/genlot_vlt2/cases/BusinessManagement/channel_terminal_manage" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/genlot_vlt2/cases/BusinessManagement/develop_plan" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/genlot_vlt2/cases/BusinessManagement/game_public_mange" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/genlot_vlt2/cases/BusinessManagement/game_reserve" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/genlot_vlt2/cases/BusinessManagement/game_s_list_plan" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/genlot_vlt2/cases/BusinessManagement/game_store_manage" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/genlot_vlt2/cases/BusinessManagement/process" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/genlot_vlt2/cases/BusinessOperation" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/genlot_vlt2/cases/BusinessOperation/lottery_manage" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/genlot_vlt2/cases/BusinessOperation/member_manage" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/genlot_vlt2/cases/BusinessOperation/permission_maintain" isTestSource="false" />
+    </content>
+    <orderEntry type="jdk" jdkName="Python 2.7 (untitled)" jdkType="Python SDK" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+  <component name="TestRunnerService">
+    <option name="PROJECT_TEST_RUNNER" value="Unittests" />
+  </component>
+</module>

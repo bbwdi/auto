@@ -1,0 +1,3960 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>测试报告</title>
+    <meta name="generator" content="HTMLTestRunner 0.8.2"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    
+<style type="text/css" media="screen">
+body        { font-family: verdana, arial, helvetica, sans-serif; font-size: 80%; }
+table       { font-size: 100%; }
+pre         { }
+
+/* -- heading ---------------------------------------------------------------------- */
+h1 {
+	font-size: 16pt;
+	color: gray;
+}
+.heading {
+    margin-top: 0ex;
+    margin-bottom: 1ex;
+}
+
+.heading .attribute {
+    margin-top: 1ex;
+    margin-bottom: 0;
+}
+
+.heading .description {
+    margin-top: 4ex;
+    margin-bottom: 6ex;
+}
+
+/* -- css div popup ------------------------------------------------------------------------ */
+a.popup_link {
+}
+
+a.popup_link:hover {
+    color: red;
+}
+
+.popup_window {
+    display: none;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    /*border: solid #627173 1px; */
+    padding: 10px;
+    background-color: #E6E6D6;
+    font-family: "Lucida Console", "Courier New", Courier, monospace;
+    text-align: left;
+    font-size: 8pt;
+    width: 500px;
+}
+
+}
+/* -- report ------------------------------------------------------------------------ */
+#show_detail_line {
+    margin-top: 3ex;
+    margin-bottom: 1ex;
+}
+#result_table {
+    width: 80%;
+    border-collapse: collapse;
+    border: 1px solid #777;
+}
+#header_row {
+    font-weight: bold;
+    color: white;
+    background-color: #777;
+}
+#result_table td {
+    border: 1px solid #777;
+    padding: 2px;
+}
+#total_row  { font-weight: bold; }
+.passClass  { background-color: #6c6; }
+.failClass  { background-color: #c60; }
+.errorClass { background-color: #c00; }
+.passCase   { color: #6c6; }
+.failCase   { color: #c60; font-weight: bold; }
+.errorCase  { color: #c00; font-weight: bold; }
+.hiddenRow  { display: none; }
+.testcase   { margin-left: 2em; }
+
+
+/* -- ending ---------------------------------------------------------------------- */
+#ending {
+}
+
+</style>
+
+</head>
+<body>
+<script language="javascript" type="text/javascript"><!--
+output_list = Array();
+
+/* level - 0:Summary; 1:Failed; 2:All */
+function showCase(level) {
+    trs = document.getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++) {
+        tr = trs[i];
+        id = tr.id;
+        if (id.substr(0,2) == 'ft') {
+            if (level < 1) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+        if (id.substr(0,2) == 'pt') {
+            if (level > 1) {
+                tr.className = '';
+            }
+            else {
+                tr.className = 'hiddenRow';
+            }
+        }
+    }
+}
+
+
+function showClassDetail(cid, count) {
+    var id_list = Array(count);
+    var toHide = 1;
+    for (var i = 0; i < count; i++) {
+        tid0 = 't' + cid.substr(1) + '.' + (i+1);
+        tid = 'f' + tid0;
+        tr = document.getElementById(tid);
+        if (!tr) {
+            tid = 'p' + tid0;
+            tr = document.getElementById(tid);
+        }
+        id_list[i] = tid;
+        if (tr.className) {
+            toHide = 0;
+        }
+    }
+    for (var i = 0; i < count; i++) {
+        tid = id_list[i];
+        if (toHide) {
+            document.getElementById('div_'+tid).style.display = 'none'
+            document.getElementById(tid).className = 'hiddenRow';
+        }
+        else {
+            document.getElementById(tid).className = '';
+        }
+    }
+}
+
+
+function showTestDetail(div_id){
+    var details_div = document.getElementById(div_id)
+    var displayState = details_div.style.display
+    // alert(displayState)
+    if (displayState != 'block' ) {
+        displayState = 'block'
+        details_div.style.display = 'block'
+    }
+    else {
+        details_div.style.display = 'none'
+    }
+}
+
+
+function html_escape(s) {
+    s = s.replace(/&/g,'&amp;');
+    s = s.replace(/</g,'&lt;');
+    s = s.replace(/>/g,'&gt;');
+    return s;
+}
+
+/* obsoleted by detail in <div>
+function showOutput(id, name) {
+    var w = window.open("", //url
+                    name,
+                    "resizable,scrollbars,status,width=800,height=450");
+    d = w.document;
+    d.write("<pre>");
+    d.write(html_escape(output_list[id]));
+    d.write("\n");
+    d.write("<a href='javascript:window.close()'>close</a>\n");
+    d.write("</pre>\n");
+    d.close();
+}
+*/
+--></script>
+
+<div class='heading'>
+<h1>测试报告</h1>
+<p class='attribute'><strong>Start Time:</strong> 2020-01-02 00:28:01</p>
+<p class='attribute'><strong>Duration:</strong> 0:51:34.733000</p>
+<p class='attribute'><strong>Status:</strong> Pass 55 Failure 7 Error 38</p>
+
+<p class='description'>Chrome测试结果</p>
+</div>
+
+
+
+<p id='show_detail_line'>Show
+<a href='javascript:showCase(0)'>Summary</a>
+<a href='javascript:showCase(1)'>Failed</a>
+<a href='javascript:showCase(2)'>All</a>
+</p>
+<table id='result_table'>
+<colgroup>
+<col align='left' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+</colgroup>
+<tr id='header_row'>
+    <td>Test Group/Test case</td>
+    <td>Count</td>
+    <td>Pass</td>
+    <td>Fail</td>
+    <td>Error</td>
+    <td>View</td>
+</tr>
+
+<tr class='errorClass'>
+    <td>BusinessManagement.business_process_case.channel_add_machine_test.add</td>
+    <td>2</td>
+    <td>0</td>
+    <td>0</td>
+    <td>2</td>
+    <td><a href="javascript:showClassDetail('c1',2)">Detail</a></td>
+</tr>
+
+<tr id='ft1.1' class='none'>
+    <td class='errorCase'><div class='testcase'>test_addmachine: 新增机器</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.1')" >
+        error</a>
+
+    <div id='div_ft1.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.1: ('xpath', '//*[@id="app"]//dd[text()=\'\xe4\xb8\x9a\xe5\x8a\xa1\xe7\xae\xa1\xe7\x90\x86\']')
+('xpath', '//*[@id="pane-1"]//input[@placeholder=\'\xe8\xaf\xb7\xe9\x80\x89\xe6\x8b\xa9\xe6\xb8\xa0\xe9\x81\x93\xe7\xbc\x96\xe5\x8f\xb7\']')
+Traceback (most recent call last):
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\cases\BusinessManagement\business_process_case\channel_add_machine_test.py", line 24, in test_addmachine
+    tt=self.dd.channel_no()
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\pages\Business_management\Business_Processing\channelAddmachine_page.py", line 57, in channel_no
+    self.get_element_by_xpath(aa).click()
+  File "D:\python27\lib\site-packages\selenium\webdriver\remote\webelement.py", line 80, in click
+    self._execute(Command.CLICK_ELEMENT)
+  File "D:\python27\lib\site-packages\selenium\webdriver\remote\webelement.py", line 633, in _execute
+    return self._parent.execute(command, params)
+  File "D:\python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "D:\python27\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+WebDriverException: Message: unknown error: Element &lt;input type="text" readonly="readonly" autocomplete="off" placeholder="è¯·éæ©æ¸ éç¼å·" class="el-input__inner"&gt; is not clickable at point (587, 335). Other element would receive the click: &lt;div class="el-loading-mask gb-loading is-fullscreen el-loading-fade-leave-active el-loading-fade-leave-to" style="background-color: rgba(0, 0, 0, 0); z-index: 2007;"&gt;...&lt;/div&gt;
+  (Session info: chrome=70.0.3538.67)
+  (Driver info: chromedriver=73.0.3683.68 (47787ec04b6e38e22703e856e101e840b65afe72),platform=Windows NT 10.0.17134 x86_64)
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.2' class='none'>
+    <td class='errorCase'><div class='testcase'>test_addmachine1: 新增机器输入完后点取消</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.2')" >
+        error</a>
+
+    <div id='div_ft1.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.2: ('xpath', '//*[@id="app"]//dd[text()=\'\xe4\xb8\x9a\xe5\x8a\xa1\xe7\xae\xa1\xe7\x90\x86\']')
+('xpath', '//*[@id="pane-1"]//input[@placeholder=\'\xe8\xaf\xb7\xe9\x80\x89\xe6\x8b\xa9\xe6\xb8\xa0\xe9\x81\x93\xe7\xbc\x96\xe5\x8f\xb7\']')
+Traceback (most recent call last):
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\cases\BusinessManagement\business_process_case\channel_add_machine_test.py", line 33, in test_addmachine1
+    tt=self.dd.channel_no()
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\pages\Business_management\Business_Processing\channelAddmachine_page.py", line 61, in channel_no
+    kk=random.randint(10,tt1)#æ°å­ä»10å¼å§
+  File "D:\python27\lib\random.py", line 244, in randint
+    return self.randrange(a, b+1)
+  File "D:\python27\lib\random.py", line 220, in randrange
+    raise ValueError, "empty range for randrange() (%d,%d, %d)" % (istart, istop, width)
+ValueError: empty range for randrange() (10,9, -1)
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='errorClass'>
+    <td>BusinessManagement.business_process_case.channel_back_test.back</td>
+    <td>2</td>
+    <td>0</td>
+    <td>0</td>
+    <td>2</td>
+    <td><a href="javascript:showClassDetail('c2',2)">Detail</a></td>
+</tr>
+
+<tr id='ft2.1' class='none'>
+    <td class='errorCase'><div class='testcase'>test_backmachine: 退机</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft2.1')" >
+        error</a>
+
+    <div id='div_ft2.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft2.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft2.1: ('xpath', '//*[@id="app"]//dd[text()=\'\xe4\xb8\x9a\xe5\x8a\xa1\xe7\xae\xa1\xe7\x90\x86\']')
+('xpath', '//*[@id="pane-1"]//input[@placeholder=\'\xe8\xaf\xb7\xe9\x80\x89\xe6\x8b\xa9\xe6\xb8\xa0\xe9\x81\x93\xe7\xbc\x96\xe5\x8f\xb7\']')
+2
+(//ul[@class='el-scrollbar__view el-select-dropdown__list']/li)[2]
+('xpath', "(//ul[@class='el-scrollbar__view el-select-dropdown__list']/li)[2]")
+('xpath', "(//ul[@class='el-scrollbar__view el-select-dropdown__list']/li)[2]")
+('xpath', '(//*[@id="pane-1"]//input[@placeholder=\'\xe8\xaf\xb7\xe9\x80\x89\xe6\x8b\xa9\xe8\xae\xbe\xe5\xa4\x87\xe5\x9e\x8b\xe5\x8f\xb7\'])')
+('xpath', "(//div[@class='el-scrollbar']//ul/li[1])[4]")
+Traceback (most recent call last):
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\cases\BusinessManagement\business_process_case\channel_back_test.py", line 25, in test_backmachine
+    self.dd.Resources()
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\pages\Business_management\Business_Processing\channel_back_page.py", line 67, in Resources
+    self.input_xpath(num1, 1)
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\pages\base_page.py", line 247, in input_xpath
+    el.clear()
+  File "D:\python27\lib\site-packages\selenium\webdriver\remote\webelement.py", line 95, in clear
+    self._execute(Command.CLEAR_ELEMENT)
+  File "D:\python27\lib\site-packages\selenium\webdriver\remote\webelement.py", line 633, in _execute
+    return self._parent.execute(command, params)
+  File "D:\python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "D:\python27\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+InvalidElementStateException: Message: invalid element state: Element must be user-editable in order to clear it.
+  (Session info: chrome=70.0.3538.67)
+  (Driver info: chromedriver=73.0.3683.68 (47787ec04b6e38e22703e856e101e840b65afe72),platform=Windows NT 10.0.17134 x86_64)
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft2.2' class='none'>
+    <td class='errorCase'><div class='testcase'>test_backmachine1: 退机输入后取消</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft2.2')" >
+        error</a>
+
+    <div id='div_ft2.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft2.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft2.2: ('xpath', '//*[@id="app"]//dd[text()=\'\xe4\xb8\x9a\xe5\x8a\xa1\xe7\xae\xa1\xe7\x90\x86\']')
+Traceback (most recent call last):
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\cases\BusinessManagement\business_process_case\channel_back_test.py", line 18, in setUp
+    self.cc.jump_channelback()
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\pages\Business_management\Business_Processing\Business_Processing_page.py", line 71, in jump_channelback
+    self.jump()
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\pages\Business_management\Business_Processing\Business_Processing_page.py", line 29, in jump
+    self.get_text_accurate(aa).click()
+  File "D:\python27\lib\site-packages\selenium\webdriver\remote\webelement.py", line 80, in click
+    self._execute(Command.CLICK_ELEMENT)
+  File "D:\python27\lib\site-packages\selenium\webdriver\remote\webelement.py", line 633, in _execute
+    return self._parent.execute(command, params)
+  File "D:\python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "D:\python27\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+WebDriverException: Message: unknown error: Element &lt;span data-v-07f39a26="" class="title"&gt;...&lt;/span&gt; is not clickable at point (89, 547). Other element would receive the click: &lt;div class="el-loading-mask gb-loading is-fullscreen" style="background-color: rgba(0, 0, 0, 0); z-index: 2006;"&gt;...&lt;/div&gt;
+  (Session info: chrome=70.0.3538.67)
+  (Driver info: chromedriver=73.0.3683.68 (47787ec04b6e38e22703e856e101e840b65afe72),platform=Windows NT 10.0.17134 x86_64)
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='errorClass'>
+    <td>BusinessManagement.business_process_case.channel_change_test.change</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+    <td><a href="javascript:showClassDetail('c3',1)">Detail</a></td>
+</tr>
+
+<tr id='ft3.1' class='none'>
+    <td class='errorCase'><div class='testcase'>test_change: 渠道变更</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.1')" >
+        error</a>
+
+    <div id='div_ft3.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.1: ('xpath', '//*[@id="app"]//dd[text()=\'\xe4\xb8\x9a\xe5\x8a\xa1\xe7\xae\xa1\xe7\x90\x86\']')
+('xpath', '//*[@id="pane-1"]//input[@placeholder=\'\xe8\xaf\xb7\xe9\x80\x89\xe6\x8b\xa9\xe6\xb8\xa0\xe9\x81\x93\xe7\xbc\x96\xe5\x8f\xb7\']')
+('xpath', "(//ul[@class='el-scrollbar__view el-select-dropdown__list']/li[1])[2]")
+('xpath', "(//ul[@class='el-scrollbar__view el-select-dropdown__list']/li[1])[2]")
+(//*[@id="pane-1"]//span[@class='el-switch__core'])[1]
+('xpath', '(//*[@id="pane-1"]//span[@class=\'el-switch__core\'])[1]')
+('xpath', '//*[@id="pane-1"]//form//input[@placeholder=\'\xe8\xaf\xb7\xe9\x80\x89\xe6\x8b\xa9\xe7\xbb\x8f\xe8\x90\xa5\xe5\x9c\xba\xe6\x89\x80\xe5\xb1\x9e\xe6\x80\xa7\']')
+Traceback (most recent call last):
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\cases\BusinessManagement\business_process_case\channel_change_test.py", line 33, in test_change
+    latitude=self.dd.latitude()
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\pages\Business_management\Business_Processing\ChannelChange_page.py", line 113, in latitude
+    self.input_xpath(latitude_path, num)
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\pages\base_page.py", line 245, in input_xpath
+    el = self.b.find_element_by_xpath(str1)
+  File "D:\python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 394, in find_element_by_xpath
+    return self.find_element(by=By.XPATH, value=xpath)
+  File "D:\python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 978, in find_element
+    'value': value})['value']
+  File "D:\python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "D:\python27\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+NoSuchElementException: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//*[@id="pane-1"]//form//input[@placeholder='è¯·è¾å¥æ¸ éçº¬åº¦']"}
+  (Session info: chrome=70.0.3538.67)
+  (Driver info: chromedriver=73.0.3683.68 (47787ec04b6e38e22703e856e101e840b65afe72),platform=Windows NT 10.0.17134 x86_64)
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='errorClass'>
+    <td>BusinessManagement.business_process_case.channel_newbuilt_test.new</td>
+    <td>3</td>
+    <td>0</td>
+    <td>0</td>
+    <td>3</td>
+    <td><a href="javascript:showClassDetail('c4',3)">Detail</a></td>
+</tr>
+
+<tr id='ft4.1' class='none'>
+    <td class='errorCase'><div class='testcase'>test_dd</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft4.1')" >
+        error</a>
+
+    <div id='div_ft4.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft4.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft4.1: ('xpath', '//*[@id="app"]//dd[text()=\'\xe4\xb8\x9a\xe5\x8a\xa1\xe7\xae\xa1\xe7\x90\x86\']')
+('xpath', '//*[@id="pane-1"]//input[@placeholder=\'\xe8\xaf\xb7\xe9\x80\x89\xe6\x8b\xa9\xe6\x89\x80\xe5\xb1\x9e\xe6\x9c\xba\xe6\x9e\x84\']')
+('xpath', "//li[contains(@id,'cascader-menu')]//span[@class='el-radio__inner']")
+('xpath', '//*[@id="pane-1"]//label[text()=\'\xe6\x89\x80\xe5\xb1\x9e\xe6\x9c\xba\xe6\x9e\x84\']')
+('xpath', '//*[@id="pane-1"]//form//div[@class=\'el-input-group__prepend\']')
+400000
+400000%
+[2020-01-02 00:30:33]: INFO - 连接数据库。。。
+[2020-01-02 00:30:33]: INFO - 数据库连接完毕
+[2020-01-02 00:30:33]: INFO - 执行sql语句:SELECT channel_no from T_CHANNEL_INFO where channel_no like '400000%' and rownum=1  ORDER BY channel_no desc
+data=[]
+[2020-01-02 00:30:33]: INFO - []
+4000000001
+4000000002
+0002
+4000000002
+title1=4000000002建厅申请
+[2020-01-02 00:30:41]: INFO - 连接数据库。。。
+[2020-01-02 00:30:41]: INFO - 数据库连接完毕
+[2020-01-02 00:30:41]: INFO - 执行sql语句:SELECT data FROM
+    	(SELECT  t.*  FROM  T_ACT_BUSINESS t WHERE t.title = '4000000002建厅申请' 
+    	    AND t.PROC_DEF_ID LIKE ( SELECT ROUTER FROM T_ACT_BUSINESS_CONFIG WHERE NAME = '渠道新建' ) || '%'  
+    	    ORDER BY t.CREATE_time DESC ) WHERE rownum =1 
+0
+Traceback (most recent call last):
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\cases\BusinessManagement\business_process_case\channel_newbuilt_test.py", line 216, in test_dd
+    tt = self.dd.data(title)
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\pages\Business_management\Business_Processing\channelnewbuilt_page.py", line 501, in data
+    kk = tt[0]
+TypeError: 'int' object has no attribute '__getitem__'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft4.2' class='none'>
+    <td class='errorCase'><div class='testcase'>test_new: 新建省级渠道</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft4.2')" >
+        error</a>
+
+    <div id='div_ft4.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft4.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft4.2: ('xpath', '//*[@id="app"]//dd[text()=\'\xe4\xb8\x9a\xe5\x8a\xa1\xe7\xae\xa1\xe7\x90\x86\']')
+('xpath', '//*[@id="pane-1"]//input[@placeholder=\'\xe8\xaf\xb7\xe9\x80\x89\xe6\x8b\xa9\xe6\x89\x80\xe5\xb1\x9e\xe6\x9c\xba\xe6\x9e\x84\']')
+('xpath', "//li[contains(@id,'cascader-menu')]//span[@class='el-radio__inner']")
+('xpath', '//*[@id="pane-1"]//label[text()=\'\xe6\x89\x80\xe5\xb1\x9e\xe6\x9c\xba\xe6\x9e\x84\']')
+('xpath', '//*[@id="pane-1"]//form//div[@class=\'el-input-group__prepend\']')
+400000
+400000%
+[2020-01-02 00:31:04]: INFO - 连接数据库。。。
+[2020-01-02 00:31:04]: INFO - 数据库连接完毕
+[2020-01-02 00:31:04]: INFO - 执行sql语句:SELECT channel_no from T_CHANNEL_INFO where channel_no like '400000%' and rownum=1  ORDER BY channel_no desc
+data=[]
+[2020-01-02 00:31:04]: INFO - []
+4000000001
+4000000002
+0002
+4000000002
+title1=4000000002建厅申请
+('xpath', '//*[@id="pane-1"]//form//input[@placeholder=\'\xe8\xaf\xb7\xe9\x80\x89\xe6\x8b\xa9\xe6\xb8\xa0\xe9\x81\x93\xe7\xad\x89\xe7\xba\xa7\']')
+('xpath', "//ul//span[text()='\xe4\xb8\x80\xe7\xba\xa7']")
+[2020-01-02 00:31:13]: INFO - 连接数据库。。。
+[2020-01-02 00:31:14]: INFO - 数据库连接完毕
+[2020-01-02 00:31:14]: INFO - 执行sql语句:SELECT ch_grade_id  from  T_CHANNEL_GRADE_INFO where ch_level_name='一级' 
+data=[(43,)]
+[2020-01-02 00:31:14]: INFO - [43]
+('xpath', '//*[@id="pane-1"]//form//input[@placeholder=\'\xe8\xaf\xb7\xe9\x80\x89\xe6\x8b\xa9\xe7\xbb\x8f\xe8\x90\xa5\xe5\x9c\xba\xe6\x89\x80\xe5\xb1\x9e\xe6\x80\xa7\']')
+Traceback (most recent call last):
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\cases\BusinessManagement\business_process_case\channel_newbuilt_test.py", line 36, in test_new
+    latitude=self.dd.latitude()
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\pages\Business_management\Business_Processing\channelnewbuilt_page.py", line 212, in latitude
+    self.input_xpath(latitude_path, num)
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\pages\base_page.py", line 245, in input_xpath
+    el = self.b.find_element_by_xpath(str1)
+  File "D:\python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 394, in find_element_by_xpath
+    return self.find_element(by=By.XPATH, value=xpath)
+  File "D:\python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 978, in find_element
+    'value': value})['value']
+  File "D:\python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "D:\python27\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+NoSuchElementException: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//*[@id="pane-1"]//form//input[@placeholder='è¯·è¾å¥æ¸ éçº¬åº¦']"}
+  (Session info: chrome=70.0.3538.67)
+  (Driver info: chromedriver=73.0.3683.68 (47787ec04b6e38e22703e856e101e840b65afe72),platform=Windows NT 10.0.17134 x86_64)
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft4.3' class='none'>
+    <td class='errorCase'><div class='testcase'>test_new_shi: 新建市级渠道</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft4.3')" >
+        error</a>
+
+    <div id='div_ft4.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft4.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft4.3: ('xpath', '//*[@id="app"]//dd[text()=\'\xe4\xb8\x9a\xe5\x8a\xa1\xe7\xae\xa1\xe7\x90\x86\']')
+('xpath', '//*[@id="pane-1"]//input[@placeholder=\'\xe8\xaf\xb7\xe9\x80\x89\xe6\x8b\xa9\xe6\x89\x80\xe5\xb1\x9e\xe6\x9c\xba\xe6\x9e\x84\']')
+('xpath', "(//li/i[@class='el-icon-arrow-right el-cascader-node__postfix'])[1]")
+39 6 33 (//ul[@class='el-scrollbar__view el-cascader-menu__list']/li//span[@class='el-radio__inner'])[33]
+('xpath', "(//ul[@class='el-scrollbar__view el-cascader-menu__list']/li//span[@class='el-radio__inner'])[33]")
+Traceback (most recent call last):
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\cases\BusinessManagement\business_process_case\channel_newbuilt_test.py", line 134, in test_new_shi
+    self.dd.group(2)
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\pages\Business_management\Business_Processing\channelnewbuilt_page.py", line 128, in group
+    self.get_element_by_xpath(abc).click()  # ç¹å»å¸
+  File "D:\python27\lib\site-packages\selenium\webdriver\remote\webelement.py", line 80, in click
+    self._execute(Command.CLICK_ELEMENT)
+  File "D:\python27\lib\site-packages\selenium\webdriver\remote\webelement.py", line 633, in _execute
+    return self._parent.execute(command, params)
+  File "D:\python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "D:\python27\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+WebDriverException: Message: unknown error: Element &lt;span class="el-radio__inner"&gt;&lt;/span&gt; is not clickable at point (651, 548). Other element would receive the click: &lt;div class="el-scrollbar__bar is-horizontal"&gt;...&lt;/div&gt;
+  (Session info: chrome=70.0.3538.67)
+  (Driver info: chromedriver=73.0.3683.68 (47787ec04b6e38e22703e856e101e840b65afe72),platform=Windows NT 10.0.17134 x86_64)
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='errorClass'>
+    <td>BusinessManagement.business_process_case.channe_relocate_test.relocate</td>
+    <td>2</td>
+    <td>0</td>
+    <td>0</td>
+    <td>2</td>
+    <td><a href="javascript:showClassDetail('c5',2)">Detail</a></td>
+</tr>
+
+<tr id='ft5.1' class='none'>
+    <td class='errorCase'><div class='testcase'>test_relocate: 迁址,根据选取到的渠道编号来 判断第四位是否为0 0则为省渠道，不为0责任市渠道</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft5.1')" >
+        error</a>
+
+    <div id='div_ft5.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft5.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft5.1: ('xpath', '//*[@id="app"]//dd[text()=\'\xe4\xb8\x9a\xe5\x8a\xa1\xe7\xae\xa1\xe7\x90\x86\']')
+('xpath', '//*[@id="pane-1"]//input[@placeholder=\'\xe8\xaf\xb7\xe9\x80\x89\xe6\x8b\xa9\xe6\xb8\xa0\xe9\x81\x93\xe7\xbc\x96\xe5\x8f\xb7\']')
+('xpath', "(//ul[@class='el-scrollbar__view el-select-dropdown__list']/li[1])")
+('xpath', "(//ul[@class='el-scrollbar__view el-select-dropdown__list']/li[1])")
+('xpath', '(//*[@id="pane-1"]//form//input[@placeholder=\'\xe8\xaf\xb7\xe9\x80\x89\xe6\x8b\xa9\xe7\x9c\x81 / \xe5\xb8\x82 / \xe5\x8c\xba\'])[1]')
+('xpath', "(//ul[@class='el-scrollbar__view el-cascader-menu__list']/li)[3]")
+(//ul[@class='el-scrollbar__view el-cascader-menu__list']/li)[4]
+('xpath', "(//ul[@class='el-scrollbar__view el-cascader-menu__list']/li)[4]")
+Traceback (most recent call last):
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\cases\BusinessManagement\business_process_case\channe_relocate_test.py", line 30, in test_relocate
+    self.dd.channeladdress(2)
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\pages\Business_management\Business_Processing\relocate_page.py", line 104, in channeladdress
+    qq2=self.randomnum(qq1)
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\pages\Business_management\Business_Processing\relocate_page.py", line 154, in randomnum
+    tt=random.randint(1,num)
+  File "D:\python27\lib\random.py", line 244, in randint
+    return self.randrange(a, b+1)
+  File "D:\python27\lib\random.py", line 220, in randrange
+    raise ValueError, "empty range for randrange() (%d,%d, %d)" % (istart, istop, width)
+ValueError: empty range for randrange() (1,1, 0)
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft5.2' class='none'>
+    <td class='errorCase'><div class='testcase'>test_relocate1: 迁址到市</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft5.2')" >
+        error</a>
+
+    <div id='div_ft5.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft5.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft5.2: ('xpath', '//*[@id="app"]//dd[text()=\'\xe4\xb8\x9a\xe5\x8a\xa1\xe7\xae\xa1\xe7\x90\x86\']')
+('xpath', '//*[@id="pane-1"]//input[@placeholder=\'\xe8\xaf\xb7\xe9\x80\x89\xe6\x8b\xa9\xe6\xb8\xa0\xe9\x81\x93\xe7\xbc\x96\xe5\x8f\xb7\']')
+('xpath', "(//ul[@class='el-scrollbar__view el-select-dropdown__list']/li[1])")
+('xpath', "(//ul[@class='el-scrollbar__view el-select-dropdown__list']/li[1])")
+('xpath', '(//*[@id="pane-1"]//form//input[@placeholder=\'\xe8\xaf\xb7\xe9\x80\x89\xe6\x8b\xa9\xe7\x9c\x81 / \xe5\xb8\x82 / \xe5\x8c\xba\'])[1]')
+('xpath', "(//ul[@class='el-scrollbar__view el-cascader-menu__list']/li)[3]")
+(//ul[@class='el-scrollbar__view el-cascader-menu__list']/li)[4]
+('xpath', "(//ul[@class='el-scrollbar__view el-cascader-menu__list']/li)[4]")
+Traceback (most recent call last):
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\cases\BusinessManagement\business_process_case\channe_relocate_test.py", line 41, in test_relocate1
+    self.dd.channeladdress(2)
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\pages\Business_management\Business_Processing\relocate_page.py", line 104, in channeladdress
+    qq2=self.randomnum(qq1)
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\pages\Business_management\Business_Processing\relocate_page.py", line 154, in randomnum
+    tt=random.randint(1,num)
+  File "D:\python27\lib\random.py", line 244, in randint
+    return self.randrange(a, b+1)
+  File "D:\python27\lib\random.py", line 220, in randrange
+    raise ValueError, "empty range for randrange() (%d,%d, %d)" % (istart, istop, width)
+ValueError: empty range for randrange() (1,1, 0)
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='errorClass'>
+    <td>BusinessManagement.business_process_case.channnel_move_test.back</td>
+    <td>2</td>
+    <td>0</td>
+    <td>0</td>
+    <td>2</td>
+    <td><a href="javascript:showClassDetail('c6',2)">Detail</a></td>
+</tr>
+
+<tr id='ft6.1' class='none'>
+    <td class='errorCase'><div class='testcase'>test_movemachine: 移机</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft6.1')" >
+        error</a>
+
+    <div id='div_ft6.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft6.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft6.1: ('xpath', '//*[@id="app"]//dd[text()=\'\xe4\xb8\x9a\xe5\x8a\xa1\xe7\xae\xa1\xe7\x90\x86\']')
+('xpath', '//*[@id="pane-1"]//input[@placeholder=\'\xe8\xaf\xb7\xe9\x80\x89\xe6\x8b\xa9\xe6\xb8\xa0\xe9\x81\x93\xe7\xbc\x96\xe5\x8f\xb7\']')
+('xpath', "(//ul[@class='el-scrollbar__view el-select-dropdown__list']/li[1])")
+('xpath', "(//ul[@class='el-scrollbar__view el-select-dropdown__list']/li[1])")
+('xpath', '(//*[@id="pane-1"]//input[@placeholder=\'\xe8\xaf\xb7\xe9\x80\x89\xe6\x8b\xa9\xe8\xae\xbe\xe5\xa4\x87\xe5\x9e\x8b\xe5\x8f\xb7\'])')
+('xpath', "(//div[@class='el-scrollbar']//ul/li[1])[4]")
+Traceback (most recent call last):
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\cases\BusinessManagement\business_process_case\channnel_move_test.py", line 25, in test_movemachine
+    self.dd.Resources()
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\pages\Business_management\Business_Processing\ChannelMove_page.py", line 51, in Resources
+    self.get_element_by_xpath(Model1).click()
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\pages\base_page.py", line 105, in get_element_by_xpath
+    WebDriverWait(self.b, 10).until(EC.visibility_of_element_located(locator))
+  File "D:\python27\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+TimeoutException: Message: 
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft6.2' class='none'>
+    <td class='errorCase'><div class='testcase'>test_movemachine1: 移机输入后取消</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft6.2')" >
+        error</a>
+
+    <div id='div_ft6.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft6.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft6.2: ('xpath', '//*[@id="app"]//dd[text()=\'\xe4\xb8\x9a\xe5\x8a\xa1\xe7\xae\xa1\xe7\x90\x86\']')
+('xpath', '//*[@id="pane-1"]//input[@placeholder=\'\xe8\xaf\xb7\xe9\x80\x89\xe6\x8b\xa9\xe6\xb8\xa0\xe9\x81\x93\xe7\xbc\x96\xe5\x8f\xb7\']')
+('xpath', "(//ul[@class='el-scrollbar__view el-select-dropdown__list']/li[1])")
+('xpath', "(//ul[@class='el-scrollbar__view el-select-dropdown__list']/li[1])")
+('xpath', '(//*[@id="pane-1"]//input[@placeholder=\'\xe8\xaf\xb7\xe9\x80\x89\xe6\x8b\xa9\xe8\xae\xbe\xe5\xa4\x87\xe5\x9e\x8b\xe5\x8f\xb7\'])')
+('xpath', "(//div[@class='el-scrollbar']//ul/li[1])[4]")
+Traceback (most recent call last):
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\cases\BusinessManagement\business_process_case\channnel_move_test.py", line 34, in test_movemachine1
+    self.dd.Resources()
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\pages\Business_management\Business_Processing\ChannelMove_page.py", line 51, in Resources
+    self.get_element_by_xpath(Model1).click()
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\pages\base_page.py", line 105, in get_element_by_xpath
+    WebDriverWait(self.b, 10).until(EC.visibility_of_element_located(locator))
+  File "D:\python27\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+TimeoutException: Message: 
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>BusinessManagement.business_process_case.resource_apply_test.pur_apply</td>
+    <td>2</td>
+    <td>2</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c7',2)">Detail</a></td>
+</tr>
+
+<tr id='pt7.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_apply_machine: 资源申请,申请终端机</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt7.1')" >
+        pass</a>
+
+    <div id='div_pt7.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt7.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt7.1: ('xpath', '//*[@id="app"]//dd[text()=\'\xe4\xb8\x9a\xe5\x8a\xa1\xe7\xae\xa1\xe7\x90\x86\']')
+('xpath', '//*[@id="pane-1"]//input[@placeholder=\'\xe8\xaf\xb7\xe9\x80\x89\xe6\x8b\xa9\xe7\x94\xb3\xe8\xaf\xb7\xe6\x97\xa5\xe6\x9c\x9f\xe6\x97\xb6\xe9\x97\xb4\']')
+('xpath', "//table[1]//td[@class='available today']")
+('xpath', '//*[@id="pane-1"]//button/span[text()=\'\xe6\x96\xb0\xe5\xa2\x9e\xe7\x89\xa9\xe5\x93\x81\']')
+('xpath', '(//*[@id="pane-1"]//input[@placeholder=\'\xe8\xaf\xb7\xe9\x80\x89\xe6\x8b\xa9\xe7\x89\xa9\xe5\x93\x81\xe5\x90\x8d\xe7\xa7\xb0\'])[1]')
+('xpath', "(//ul[@class='el-scrollbar__view el-select-dropdown__list'])[6]")
+('xpath', "(//ul//span[text()='\xe7\xbb\x88\xe7\xab\xaf\xe6\x9c\xba'])[3]")
+('xpath', '(//*[@id="pane-1"]//input[@placeholder=\'\xe8\xaf\xb7\xe9\x80\x89\xe6\x8b\xa9\xe7\x89\xa9\xe5\x93\x81\xe5\x9e\x8b\xe5\x8f\xb7\'])[1]')
+('xpath', "(//ul[@class='el-scrollbar__view el-select-dropdown__list']/li[1]/span)[6]")
+('xpath', "(//ul[@class='el-scrollbar__view el-select-dropdown__list']/li[1]/span)[6]")
+('xpath', '//*[@id="pane-1"]//input[@placeholder=\'\xe5\x90\x88\xe8\xae\xa1\xe9\x87\x91\xe9\xa2\x9d\']')
+('xpath', '//*[@id="pane-1"]//em[text()=\'\xe7\x82\xb9\xe5\x87\xbb\xe4\xb8\x8a\xe4\xbc\xa0\']')
+('xpath', '//*[@id="pane-1"]//span[text()=\'\xe6\x8f\x90\xe4\xba\xa4\']')
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt7.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_apply_machine1: 资源申请,申请柜员机</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt7.2')" >
+        pass</a>
+
+    <div id='div_pt7.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt7.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt7.2: ('xpath', '//*[@id="app"]//dd[text()=\'\xe4\xb8\x9a\xe5\x8a\xa1\xe7\xae\xa1\xe7\x90\x86\']')
+('xpath', '//*[@id="pane-1"]//input[@placeholder=\'\xe8\xaf\xb7\xe9\x80\x89\xe6\x8b\xa9\xe7\x94\xb3\xe8\xaf\xb7\xe6\x97\xa5\xe6\x9c\x9f\xe6\x97\xb6\xe9\x97\xb4\']')
+('xpath', "//table[1]//td[@class='available today']")
+('xpath', '//*[@id="pane-1"]//button/span[text()=\'\xe6\x96\xb0\xe5\xa2\x9e\xe7\x89\xa9\xe5\x93\x81\']')
+('xpath', '(//*[@id="pane-1"]//input[@placeholder=\'\xe8\xaf\xb7\xe9\x80\x89\xe6\x8b\xa9\xe7\x89\xa9\xe5\x93\x81\xe5\x90\x8d\xe7\xa7\xb0\'])[1]')
+('xpath', "(//ul[@class='el-scrollbar__view el-select-dropdown__list'])[6]")
+('xpath', "(//ul//span[text()='\xe7\xbb\x88\xe7\xab\xaf\xe6\x9c\xba'])[3]")
+('xpath', '(//*[@id="pane-1"]//input[@placeholder=\'\xe8\xaf\xb7\xe9\x80\x89\xe6\x8b\xa9\xe7\x89\xa9\xe5\x93\x81\xe5\x9e\x8b\xe5\x8f\xb7\'])[1]')
+('xpath', "(//ul[@class='el-scrollbar__view el-select-dropdown__list']/li[1]/span)[6]")
+('xpath', "(//ul[@class='el-scrollbar__view el-select-dropdown__list']/li[1]/span)[6]")
+('xpath', '//*[@id="pane-1"]//input[@placeholder=\'\xe5\x90\x88\xe8\xae\xa1\xe9\x87\x91\xe9\xa2\x9d\']')
+('xpath', '//*[@id="pane-1"]//em[text()=\'\xe7\x82\xb9\xe5\x87\xbb\xe4\xb8\x8a\xe4\xbc\xa0\']')
+('xpath', '//*[@id="pane-1"]//span[text()=\'\xe5\x8f\x96\xe6\xb6\x88\']')
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='failClass'>
+    <td>BusinessManagement.business_process_case.Resoure_Purcure_test.purcure</td>
+    <td>2</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c8',2)">Detail</a></td>
+</tr>
+
+<tr id='ft8.1' class='none'>
+    <td class='failCase'><div class='testcase'>test_purcure_machine: 资源采购,采购终端机，需要有终端机类型 没有的话就随机加一个类型</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft8.1')" >
+        fail</a>
+
+    <div id='div_ft8.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft8.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft8.1: ('xpath', '//*[@id="app"]//dd[text()=\'\xe4\xb8\x9a\xe5\x8a\xa1\xe7\xae\xa1\xe7\x90\x86\']')
+('xpath', '//*[@id="app"]//div//span/span[@class=\'user-name\']')
+('xpath', '//*[@id="pane-1"]//input[@placeholder=\'\xe8\xaf\xb7\xe9\x80\x89\xe6\x8b\xa9\xe5\x88\xb0\xe8\xb4\xa7\xe6\x97\xa5\xe6\x9c\x9f\']')
+('xpath', "//table[1]//td[@class='available today']")
+('xpath', '//*[@id="pane-1"]//button/span[text()=\'\xe6\x96\xb0\xe5\xa2\x9e\xe7\x89\xa9\xe5\x93\x81\']')
+('xpath', '(//*[@id="pane-1"]//input[@placeholder=\'\xe8\xaf\xb7\xe9\x80\x89\xe6\x8b\xa9\xe7\x89\xa9\xe5\x93\x81\xe5\x90\x8d\xe7\xa7\xb0\'])[1]')
+('xpath', "(//ul[@class='el-scrollbar__view el-select-dropdown__list'])[6]")
+('xpath', "(//ul//span[text()='\xe7\xbb\x88\xe7\xab\xaf\xe6\x9c\xba'])[3]")
+('xpath', '(//*[@id="pane-1"]//input[@placeholder=\'\xe8\xaf\xb7\xe9\x80\x89\xe6\x8b\xa9\xe7\x89\xa9\xe5\x93\x81\xe5\x9e\x8b\xe5\x8f\xb7\'])[1]')
+('xpath', "(//ul[@class='el-scrollbar__view el-select-dropdown__list']/li[1]/span)[6]")
+('xpath', "(//ul[@class='el-scrollbar__view el-select-dropdown__list']/li[1]/span)[6]")
+('xpath', '//*[@id="pane-1"]/div[2]/div[2]/div/div[3]/form/div/div[3]/table/tbody/tr/td[7]/div')
+('xpath', '//*[@id="pane-1"]//em[text()=\'\xe7\x82\xb9\xe5\x87\xbb\xe4\xb8\x8a\xe4\xbc\xa0\']')
+('xpath', '//*[@id="pane-1"]//span[text()=\'\xe6\x8f\x90\xe4\xba\xa4\']')
+[2020-01-02 00:36:17]: INFO - 连接数据库。。。
+[2020-01-02 00:36:17]: INFO - 数据库连接完毕
+[2020-01-02 00:36:17]: INFO - 执行sql语句:SELECT data FROM
+	(SELECT  t.*  FROM  T_ACT_BUSINESS t WHERE t.title = 'autotest资源采购' 
+	    AND t.PROC_DEF_ID LIKE ( SELECT ROUTER FROM T_ACT_BUSINESS_CONFIG WHERE NAME = '资源采购' ) || '%' 
+    ORDER BY t.CREATE_time DESC ) WHERE rownum =1 
+ss={"resourceApplyTitle":"autotest资源采购","purchaseUserName":"gavin-aa","preReceivDate":"2019-12-31 00:00:00","attachId":null,"createBy":9,"createByName":"gavin-aa","ownUserId":9,"ownUserName":"gavin-aa","remark":"没得办法，必须的走","totalMoney":200000,"warehouseGoodsInfoList":[{"goodName":null,"modelId":41,"goodsSerialNumber":"gavin969737","goodsType":1,"num":1,"unitPrice":200000,"amount":200000,"remark":"备注信息year","goodId":2,"goodsName":"终端机"}]}
+&lt;type 'str'&gt;
+{'warehouseGoodsInfoList': [{'goodsSerialNumber': 'gavin969737', 'amount': 200000, 'num': 1, 'goodId': 2, 'goodsName': '\xe7\xbb\x88\xe7\xab\xaf\xe6\x9c\xba', 'goodName': '', 'goodsType': 1, 'unitPrice': 200000, 'remark': '\xe5\xa4\x87\xe6\xb3\xa8\xe4\xbf\xa1\xe6\x81\xafyear', 'modelId': 41}], 'totalMoney': 200000, 'ownUserId': 9, 'ownUserName': 'gavin-aa', 'resourceApplyTitle': 'autotest\xe8\xb5\x84\xe6\xba\x90\xe9\x87\x87\xe8\xb4\xad', 'remark': '\xe6\xb2\xa1\xe5\xbe\x97\xe5\x8a\x9e\xe6\xb3\x95\xef\xbc\x8c\xe5\xbf\x85\xe9\xa1\xbb\xe7\x9a\x84\xe8\xb5\xb0', 'createBy': 9, 'preReceivDate': '2019-12-31 00:00:00', 'attachId': '', 'purchaseUserName': 'gavin-aa', 'createByName': 'gavin-aa'}
+cc={'goodsSerialNumber': 'gavin969737', 'amount': 200000, 'num': 1, 'goodId': 2, 'goodsName': '\xe7\xbb\x88\xe7\xab\xaf\xe6\x9c\xba', 'goodName': '', 'goodsType': 1, 'unitPrice': 200000, 'remark': '\xe5\xa4\x87\xe6\xb3\xa8\xe4\xbf\xa1\xe6\x81\xafyear', 'modelId': 41}
+[2020-01-02 00:36:18]: INFO - 连接数据库。。。
+[2020-01-02 00:36:18]: INFO - 数据库连接完毕
+[2020-01-02 00:36:18]: INFO - 执行sql语句:SELECT device_model FROM T_GOODS_MODEL WHERE goods_id = 2 AND id = 41
+data=[('zdj--test--001',)]
+[2020-01-02 00:36:18]: INFO - ['zdj--test--001']
+Traceback (most recent call last):
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\cases\BusinessManagement\business_process_case\Resoure_Purcure_test.py", line 43, in test_purcure_machine
+    self.assertEqual(name,data['purchaseUserName'])
+AssertionError: '\xe9\x83\x91\xe6\xad\xa6' != 'gavin-aa'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt8.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_purcure_machine1: 资源采购,采购柜员机,需要有柜员机类型 没有的话就随机加一个类型</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt8.2')" >
+        pass</a>
+
+    <div id='div_pt8.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt8.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt8.2: ('xpath', '//*[@id="app"]//dd[text()=\'\xe4\xb8\x9a\xe5\x8a\xa1\xe7\xae\xa1\xe7\x90\x86\']')
+('xpath', '//*[@id="app"]//div//span/span[@class=\'user-name\']')
+('xpath', '//*[@id="pane-1"]//input[@placeholder=\'\xe8\xaf\xb7\xe9\x80\x89\xe6\x8b\xa9\xe5\x88\xb0\xe8\xb4\xa7\xe6\x97\xa5\xe6\x9c\x9f\']')
+('xpath', "//table[1]//td[@class='available today']")
+('xpath', '//*[@id="pane-1"]//button/span[text()=\'\xe6\x96\xb0\xe5\xa2\x9e\xe7\x89\xa9\xe5\x93\x81\']')
+('xpath', '(//*[@id="pane-1"]//input[@placeholder=\'\xe8\xaf\xb7\xe9\x80\x89\xe6\x8b\xa9\xe7\x89\xa9\xe5\x93\x81\xe5\x90\x8d\xe7\xa7\xb0\'])[1]')
+('xpath', "(//ul[@class='el-scrollbar__view el-select-dropdown__list'])[6]")
+('xpath', "(//ul//span[text()='\xe6\x9f\x9c\xe5\x91\x98\xe6\x9c\xba'])[3]")
+('xpath', '(//*[@id="pane-1"]//input[@placeholder=\'\xe8\xaf\xb7\xe9\x80\x89\xe6\x8b\xa9\xe7\x89\xa9\xe5\x93\x81\xe5\x9e\x8b\xe5\x8f\xb7\'])[1]')
+('xpath', "(//ul[@class='el-scrollbar__view el-select-dropdown__list']/li[1]/span)[6]")
+('xpath', "(//ul[@class='el-scrollbar__view el-select-dropdown__list']/li[1]/span)[6]")
+('xpath', '//*[@id="pane-1"]//em[text()=\'\xe7\x82\xb9\xe5\x87\xbb\xe4\xb8\x8a\xe4\xbc\xa0\']')
+('xpath', '//*[@id="pane-1"]//span[text()=\'\xe6\x8f\x90\xe4\xba\xa4\']')
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='errorClass'>
+    <td>BusinessManagement.card_balance.card_generation_test.cardGenerationTest: 投注卡生成测试</td>
+    <td>6</td>
+    <td>4</td>
+    <td>0</td>
+    <td>2</td>
+    <td><a href="javascript:showClassDetail('c9',6)">Detail</a></td>
+</tr>
+
+<tr id='ft9.1' class='none'>
+    <td class='errorCase'><div class='testcase'>test_card_generation_add: 投注卡新增</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft9.1')" >
+        error</a>
+
+    <div id='div_ft9.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft9.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft9.1: [2020-01-02 00:37:35]: INFO - 开始登录
+Traceback (most recent call last):
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\cases\BusinessManagement\card_balance\card_generation_test.py", line 23, in test_card_generation_add
+    tips=self.get_tips()
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\pages\base_page.py", line 708, in get_tips
+    tips=self.find_elements_for_text(tips_loc).pop(-1).text
+  File "D:\python27\lib\site-packages\selenium\webdriver\remote\webelement.py", line 76, in text
+    return self._execute(Command.GET_ELEMENT_TEXT)['value']
+  File "D:\python27\lib\site-packages\selenium\webdriver\remote\webelement.py", line 633, in _execute
+    return self._parent.execute(command, params)
+  File "D:\python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "D:\python27\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+StaleElementReferenceException: Message: stale element reference: element is not attached to the page document
+  (Session info: chrome=70.0.3538.67)
+  (Driver info: chromedriver=73.0.3683.68 (47787ec04b6e38e22703e856e101e840b65afe72),platform=Windows NT 10.0.17134 x86_64)
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft9.2' class='none'>
+    <td class='errorCase'><div class='testcase'>test_card_generation_cancel: 投注卡注销</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft9.2')" >
+        error</a>
+
+    <div id='div_ft9.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft9.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft9.2: [2020-01-02 00:38:06]: INFO - 开始登录
+Traceback (most recent call last):
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\cases\BusinessManagement\card_balance\card_generation_test.py", line 86, in test_card_generation_cancel
+    self.search_card_generation(search_list)
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\pages\Business_management\card_balance_page\card_manage_card_generation_page.py", line 24, in search_card_generation
+    self.choose_more_region_check_box_for_one(info_list[1:4])
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\pages\base_page.py", line 461, in choose_more_region_check_box_for_one
+    self.choose_region_check_box_for_one(value)
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\pages\base_page.py", line 456, in choose_region_check_box_for_one
+    self.find_element_for_xpath(By.XPATH,region_loc %box_text).click()
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\pages\base_page.py", line 311, in find_element_for_xpath
+    return self.driver.find_element(*loc)
+  File "D:\python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 978, in find_element
+    'value': value})['value']
+  File "D:\python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "D:\python27\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+NoSuchElementException: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//*[contains(text(),"ä¸­ç¦å½©")]/../label/span[1]"}
+  (Session info: chrome=70.0.3538.67)
+  (Driver info: chromedriver=73.0.3683.68 (47787ec04b6e38e22703e856e101e840b65afe72),platform=Windows NT 10.0.17134 x86_64)
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt9.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_card_generation_detail: 投注卡查看</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt9.3')" >
+        pass</a>
+
+    <div id='div_pt9.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt9.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt9.3: [2020-01-02 00:38:42]: INFO - 开始登录
+3b86074acc204eaa94e86b10db1e1a2f
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt9.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_card_generation_export: 投注卡导出</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt9.4')" >
+        pass</a>
+
+    <div id='div_pt9.4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt9.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt9.4: [2020-01-02 00:39:08]: INFO - 开始登录
+已删除文件C:\Users\Bon\Downloads\投注卡生成信息.xls
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt9.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_card_generation_reset: 投注卡重置</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt9.5')" >
+        pass</a>
+
+    <div id='div_pt9.5' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt9.5').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt9.5: [2020-01-02 00:39:42]: INFO - 开始登录
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt9.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_card_generation_search: 投注卡查询</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt9.6')" >
+        pass</a>
+
+    <div id='div_pt9.6' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt9.6').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt9.6: [2020-01-02 00:40:08]: INFO - 开始登录
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='errorClass'>
+    <td>BusinessManagement.card_balance.card_information_test.cardInformationTest: 投注卡信息测试</td>
+    <td>3</td>
+    <td>2</td>
+    <td>0</td>
+    <td>1</td>
+    <td><a href="javascript:showClassDetail('c10',3)">Detail</a></td>
+</tr>
+
+<tr id='ft10.1' class='none'>
+    <td class='errorCase'><div class='testcase'>test_card_information_cancel: 投注卡信息注销</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft10.1')" >
+        error</a>
+
+    <div id='div_ft10.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft10.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft10.1: [2020-01-02 00:40:39]: INFO - 开始登录
+Traceback (most recent call last):
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\cases\BusinessManagement\card_balance\card_information_test.py", line 42, in test_card_information_cancel
+    self.search_card_information(search_list)
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\pages\Business_management\card_balance_page\card_manage_card_information_page.py", line 26, in search_card_information
+    self.choose_more_region_check_box_for_one(info_list[1:4])
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\pages\base_page.py", line 461, in choose_more_region_check_box_for_one
+    self.choose_region_check_box_for_one(value)
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\pages\base_page.py", line 456, in choose_region_check_box_for_one
+    self.find_element_for_xpath(By.XPATH,region_loc %box_text).click()
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\pages\base_page.py", line 311, in find_element_for_xpath
+    return self.driver.find_element(*loc)
+  File "D:\python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 978, in find_element
+    'value': value})['value']
+  File "D:\python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "D:\python27\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+NoSuchElementException: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//*[contains(text(),"ä¸­ç¦å½©")]/../label/span[1]"}
+  (Session info: chrome=70.0.3538.67)
+  (Driver info: chromedriver=73.0.3683.68 (47787ec04b6e38e22703e856e101e840b65afe72),platform=Windows NT 10.0.17134 x86_64)
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt10.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_card_information_check_detail: 投注卡信息查看</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt10.2')" >
+        pass</a>
+
+    <div id='div_pt10.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt10.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt10.2: [2020-01-02 00:41:19]: INFO - 开始登录
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt10.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_card_information_search: 投注卡信息查询</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt10.3')" >
+        pass</a>
+
+    <div id='div_pt10.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt10.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt10.3: [2020-01-02 00:41:48]: INFO - 开始登录
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='errorClass'>
+    <td>BusinessManagement.channel_Business.channel_list_test.channel_list_test</td>
+    <td>6</td>
+    <td>1</td>
+    <td>0</td>
+    <td>5</td>
+    <td><a href="javascript:showClassDetail('c11',6)">Detail</a></td>
+</tr>
+
+<tr id='ft11.1' class='none'>
+    <td class='errorCase'><div class='testcase'>test_export_all: 测试导出所有</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft11.1')" >
+        error</a>
+
+    <div id='div_ft11.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft11.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft11.1: ('xpath', '//*[@id="app"]//dd[text()=\'\xe4\xb8\x9a\xe5\x8a\xa1\xe7\xae\xa1\xe7\x90\x86\']')
+C:\Users\Bon\Downloads\渠道列表.xls
+('xpath', '//*[@id="main"]//button[3]/span[contains(text(),\'\xe5\xb1\x95\xe5\xbc\x80\')]')
+Traceback (most recent call last):
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\cases\BusinessManagement\channel_Business\channel_list_test.py", line 76, in test_export_all
+    self.cc.export_all()
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\pages\Business_management\channel_list\channel_list_page.py", line 91, in export_all
+    self.channel_type(channel_type)
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\pages\Business_management\channel_list\channel_list_page.py", line 178, in channel_type
+    self.input_xpath(input_channel_type, type1)
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\pages\base_page.py", line 247, in input_xpath
+    el.clear()
+  File "D:\python27\lib\site-packages\selenium\webdriver\remote\webelement.py", line 95, in clear
+    self._execute(Command.CLEAR_ELEMENT)
+  File "D:\python27\lib\site-packages\selenium\webdriver\remote\webelement.py", line 633, in _execute
+    return self._parent.execute(command, params)
+  File "D:\python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "D:\python27\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+InvalidElementStateException: Message: invalid element state: Element must be user-editable in order to clear it.
+  (Session info: chrome=70.0.3538.67)
+  (Driver info: chromedriver=73.0.3683.68 (47787ec04b6e38e22703e856e101e840b65afe72),platform=Windows NT 10.0.17134 x86_64)
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft11.2' class='none'>
+    <td class='errorCase'><div class='testcase'>test_export_now: 测试导出当前</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft11.2')" >
+        error</a>
+
+    <div id='div_ft11.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft11.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft11.2: ('xpath', '//*[@id="app"]//dd[text()=\'\xe4\xb8\x9a\xe5\x8a\xa1\xe7\xae\xa1\xe7\x90\x86\']')
+C:\Users\Bon\Downloads\渠道列表.xls
+('xpath', '//*[@id="main"]//button[3]/span[contains(text(),\'\xe5\xb1\x95\xe5\xbc\x80\')]')
+Traceback (most recent call last):
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\cases\BusinessManagement\channel_Business\channel_list_test.py", line 67, in test_export_now
+    self.cc.export()
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\pages\Business_management\channel_list\channel_list_page.py", line 78, in export
+    self.channel_type(channel_type)
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\pages\Business_management\channel_list\channel_list_page.py", line 178, in channel_type
+    self.input_xpath(input_channel_type, type1)
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\pages\base_page.py", line 247, in input_xpath
+    el.clear()
+  File "D:\python27\lib\site-packages\selenium\webdriver\remote\webelement.py", line 95, in clear
+    self._execute(Command.CLEAR_ELEMENT)
+  File "D:\python27\lib\site-packages\selenium\webdriver\remote\webelement.py", line 633, in _execute
+    return self._parent.execute(command, params)
+  File "D:\python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "D:\python27\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+InvalidElementStateException: Message: invalid element state: Element must be user-editable in order to clear it.
+  (Session info: chrome=70.0.3538.67)
+  (Driver info: chromedriver=73.0.3683.68 (47787ec04b6e38e22703e856e101e840b65afe72),platform=Windows NT 10.0.17134 x86_64)
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft11.3' class='none'>
+    <td class='errorCase'><div class='testcase'>test_query1: 测试渠道列表全部查询，只校验总数是不是一样</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft11.3')" >
+        error</a>
+
+    <div id='div_ft11.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft11.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft11.3: ('xpath', '//*[@id="app"]//dd[text()=\'\xe4\xb8\x9a\xe5\x8a\xa1\xe7\xae\xa1\xe7\x90\x86\']')
+('xpath', '//*[@id="app"]//div//span/span[@class=\'user-name\']')
+[2020-01-02 00:43:18]: INFO - 连接数据库。。。
+[2020-01-02 00:43:18]: INFO - 数据库连接完毕
+[2020-01-02 00:43:18]: INFO - 执行sql语句: SELECT t.ins_id  from T_USER_INS t left join T_USER_INFO  k on t.user_id=k.user_id where  k.account='郑武' 
+data=[]
+[2020-01-02 00:43:18]: INFO - []
+[2020-01-02 00:43:18]: INFO - []
+kk=[]
+Traceback (most recent call last):
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\cases\BusinessManagement\channel_Business\channel_list_test.py", line 28, in test_query1
+    aa = self.cc.queryresult()
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\pages\Business_management\channel_list\channel_list_page.py", line 131, in queryresult
+    ins=self.ins()
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\pages\base_page.py", line 296, in ins
+    kk1=kk[0]
+IndexError: list index out of range
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft11.4' class='none'>
+    <td class='errorCase'><div class='testcase'>test_query2: 测试渠道列表第一行数据，并且校验,</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft11.4')" >
+        error</a>
+
+    <div id='div_ft11.4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft11.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft11.4: ('xpath', '//*[@id="app"]//dd[text()=\'\xe4\xb8\x9a\xe5\x8a\xa1\xe7\xae\xa1\xe7\x90\x86\']')
+('xpath', '//*[@id="main"]//span[1][contains(text(),\'\xe5\x85\xb1 \')]')
+[2020-01-02 00:43:32]: INFO - 共 2 条
+[2020-01-02 00:43:32]: INFO - 2
+('xpath', '(//*[@id="main"]//table/tbody/tr[1]/td[2]/div)[1]')
+('xpath', '(//*[@id="main"]//table/tbody/tr)[1]')
+[2020-01-02 00:43:35]: INFO - [u'4000000001\n\u81ea\u8425\u5385\n\u91cd\u5e86\u5e02\n\u4e94\u7ea7\n\u9648\u7559\n13570815689\n2020-01-01 22:56:29']
+('xpath', '(//*[@id="main"]//table/tbody/tr[1]/td[2]/div)[1]')
+[2020-01-02 00:43:35]: INFO - 连接数据库。。。
+[2020-01-02 00:43:35]: INFO - 数据库连接完毕
+[2020-01-02 00:43:35]: INFO - 执行sql语句:SELECT       d.channel_no AS channelNo, 
+            	case 
+						WHEN	d.channel_type=0 then '自营厅'
+						WHEN	d.channel_type=1 then '合作厅'
+						else NULL
+						  END,
+							t.ins_name AS insName,( SELECT tcgi.ch_level_name FROM t_channel_grade_info tcgi WHERE tcgi.ch_grade_id = d.channel_level_id ) 	channelLevelName,
+            	dd.account_name,dd.phone
+            FROM
+            	t_channel_info d
+            	LEFT JOIN t_partner c ON d.partner_id = c.id
+            	INNER JOIN t_ins_info t ON d.ins_id = t.ins_id
+							LEFT JOIN T_FINANCE_INFO a on a.channel_id=d.channel_id
+							LEFT JOIN T_CHANNEL_FUND dd on dd.channel_id=d.channel_id
+            WHERE d.channel_no =4000000001
+data=[]
+[2020-01-02 00:43:35]: INFO - []
+[u'4000000001', u'\u81ea\u8425\u5385', u'\u91cd\u5e86\u5e02', u'\u4e94\u7ea7', u'\u9648\u7559', u'13570815689', u'2020-01-01 22:56:29']
+0
+Traceback (most recent call last):
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\cases\BusinessManagement\channel_Business\channel_list_test.py", line 43, in test_query2
+    self.assertEqual(tt1[i],yy[i])
+TypeError: 'int' object has no attribute '__getitem__'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt11.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_resetting: 测试重置按钮，输入框中前后对比</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt11.5')" >
+        pass</a>
+
+    <div id='div_pt11.5' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt11.5').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt11.5: ('xpath', '//*[@id="app"]//dd[text()=\'\xe4\xb8\x9a\xe5\x8a\xa1\xe7\xae\xa1\xe7\x90\x86\']')
+('xpath', '//*[@id="main"]//button[3]/span[contains(text(),\'\xe5\xb1\x95\xe5\xbc\x80\')]')
+('xpath', "//body//ul//span[text()='\xe8\x87\xaa\xe8\x90\xa5\xe5\x8e\x85']")
+('xpath', u"//body//ul//span[text()='\u4e00\u7ea7']")
+('xpath', '//*[@id="main"]//button[2]/span[text()=\'\xe9\x87\x8d\xe7\xbd\xae\']')
+('xpath', '//*[@id="main"]//input[@placeholder=\'\xe8\xaf\xb7\xe8\xbe\x93\xe5\x85\xa5\xe6\xb8\xa0\xe9\x81\x93\xe7\xbc\x96\xe5\x8f\xb7\']')
+('xpath', '//*[@id="main"]//input[@placeholder=\'\xe8\xaf\xb7\xe9\x80\x89\xe6\x8b\xa9\xe6\xb8\xa0\xe9\x81\x93\xe7\xb1\xbb\xe5\x9e\x8b\']')
+('xpath', '//*[@id="main"]//input[@placeholder=\'\xe8\xaf\xb7\xe9\x80\x89\xe6\x8b\xa9\xe6\xb8\xa0\xe9\x81\x93\xe7\xad\x89\xe7\xba\xa7\']')
+('xpath', '//*[@id="main"]//input[@placeholder=\'\xe8\xaf\xb7\xe8\xbe\x93\xe5\x85\xa5\xe8\xb4\x9f\xe8\xb4\xa3\xe4\xba\xba\']')
+('xpath', '//*[@id="main"]//input[@placeholder=\'\xe8\xaf\xb7\xe8\xbe\x93\xe5\x85\xa5\xe8\x81\x94\xe7\xb3\xbb\xe7\x94\xb5\xe8\xaf\x9d\']')
+('xpath', '//*[@id="main"]//input[@placeholder=\'\xe5\xbc\x80\xe5\xa7\x8b\xe6\x97\xa5\xe6\x9c\x9f\']')
+('xpath', '//*[@id="main"]//input[@placeholder=\'\xe7\xbb\x93\xe6\x9d\x9f\xe6\x97\xa5\xe6\x9c\x9f\']')
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft11.6' class='none'>
+    <td class='errorCase'><div class='testcase'>test_view: 查看，并对比数据</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft11.6')" >
+        error</a>
+
+    <div id='div_ft11.6' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft11.6').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft11.6: ('xpath', '//*[@id="app"]//dd[text()=\'\xe4\xb8\x9a\xe5\x8a\xa1\xe7\xae\xa1\xe7\x90\x86\']')
+('xpath', '//*[@id="main"]//span[1][contains(text(),\'\xe5\x85\xb1 \')]')
+[2020-01-02 00:44:27]: INFO - 共 2 条
+[2020-01-02 00:44:27]: INFO - 2
+('xpath', '(//*[@id="main"]//table/tbody/tr[1]/td[2]/div)[1]')
+[2020-01-02 00:44:28]: INFO - 连接数据库。。。
+[2020-01-02 00:44:28]: INFO - 数据库连接完毕
+[2020-01-02 00:44:28]: INFO - 执行sql语句:SELECT        t.ins_name AS insName,
+            	case 
+						WHEN	d.channel_type=0 then '自营厅'
+						WHEN	d.channel_type=1 then '合作厅'
+						else NULL
+						  END,
+            	( SELECT tcgi.ch_level_name FROM t_channel_grade_info tcgi WHERE tcgi.ch_grade_id = d.channel_level_id ) channelLevelName,d.channel_no AS channelNo,
+							case 
+						WHEN	a.RUN_FIELD=0 then '自有'
+						WHEN	a.RUN_FIELD=1 then '租用'
+						else NULL
+						  END,a.POINT_AREA,
+							d.channel_address AS channelAddress,
+							d.longitude,
+            	d.latitude,
+							d.buy_card_limit buyCardLimit,
+            	d.try_card_limit tryCardLimit,
+							d.recharge_count rechargeCount,
+							d.CHANNEL_LIMIT
+							
+            FROM
+            	t_channel_info d
+            	LEFT JOIN t_partner c ON d.partner_id = c.id
+            	INNER JOIN t_ins_info t ON d.ins_id = t.ins_id
+							LEFT JOIN T_FINANCE_INFO a on a.channel_id=d.channel_id
+            WHERE d.channel_no = '4000000001'  
+data=[]
+[2020-01-02 00:44:28]: INFO - []
+('xpath', '//*[@id="main"]//span[1][contains(text(),\'\xe5\x85\xb1 \')]')
+[2020-01-02 00:44:28]: INFO - 共 2 条
+[2020-01-02 00:44:28]: INFO - 2
+('xpath', '//*[@id="main"]//span[1][contains(text(),\'\xe5\x85\xb1 \')]')
+[2020-01-02 00:44:28]: INFO - 共 2 条
+[2020-01-02 00:44:28]: INFO - 2
+('xpath', '(//*[@id="main"]//table/tbody/tr[1]/td[2]/div)[1]')
+('xpath', '//*[@id="main"]//button[3]/span[contains(text(),\'\xe5\xb1\x95\xe5\xbc\x80\')]')
+Traceback (most recent call last):
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\cases\BusinessManagement\channel_Business\channel_list_test.py", line 85, in test_view
+    tt=self.cc.view_channel()#Unicode
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\pages\Business_management\channel_list\channel_list_page.py", line 295, in view_channel
+    self.view(channer_no=kk)
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\pages\Business_management\channel_list\channel_list_page.py", line 105, in view
+    self.channel_type(channel_type)
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\pages\Business_management\channel_list\channel_list_page.py", line 178, in channel_type
+    self.input_xpath(input_channel_type, type1)
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\pages\base_page.py", line 247, in input_xpath
+    el.clear()
+  File "D:\python27\lib\site-packages\selenium\webdriver\remote\webelement.py", line 95, in clear
+    self._execute(Command.CLEAR_ELEMENT)
+  File "D:\python27\lib\site-packages\selenium\webdriver\remote\webelement.py", line 633, in _execute
+    return self._parent.execute(command, params)
+  File "D:\python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "D:\python27\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+InvalidElementStateException: Message: invalid element state: Element must be user-editable in order to clear it.
+  (Session info: chrome=70.0.3538.67)
+  (Driver info: chromedriver=73.0.3683.68 (47787ec04b6e38e22703e856e101e840b65afe72),platform=Windows NT 10.0.17134 x86_64)
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='errorClass'>
+    <td>BusinessManagement.channel_resource1.basic_infomodel_test.basic_type</td>
+    <td>9</td>
+    <td>1</td>
+    <td>0</td>
+    <td>8</td>
+    <td><a href="javascript:showClassDetail('c12',9)">Detail</a></td>
+</tr>
+
+<tr id='pt12.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_addbutton_success: 新增按钮成功跳转</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt12.1')" >
+        pass</a>
+
+    <div id='div_pt12.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt12.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt12.1: ('xpath', '//*[@id="app"]//dd[text()=\'\xe4\xb8\x9a\xe5\x8a\xa1\xe7\xae\xa1\xe7\x90\x86\']')
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft12.2' class='none'>
+    <td class='errorCase'><div class='testcase'>test_addpartsmodel_success: 新增配件型号成功</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft12.2')" >
+        error</a>
+
+    <div id='div_ft12.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft12.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft12.2: ('xpath', '//*[@id="app"]//dd[text()=\'\xe4\xb8\x9a\xe5\x8a\xa1\xe7\xae\xa1\xe7\x90\x86\']')
+('xpath', "//input[@placeholder='\xe8\xaf\xb7\xe9\x80\x89\xe6\x8b\xa9']")
+('xpath', "//span[text()='\xe9\x85\x8d\xe4\xbb\xb6']")
+[2020-01-02 00:45:16]: INFO - 物品类别选择:配件
+('xpath', "//input[@placeholder='\xe8\xaf\xb7\xe9\x80\x89\xe6\x8b\xa9\xe9\x85\x8d\xe4\xbb\xb6\xe5\x90\x8d\xe7\xa7\xb0']")
+Traceback (most recent call last):
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\cases\BusinessManagement\channel_resource1\basic_infomodel_test.py", line 66, in test_addpartsmodel_success
+    lst[1] = self.oba.select_partsname(lst[1])
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\pages\Business_management\Basic_Infomanagement\AddModel_Page.py", line 60, in select_partsname
+    el[0].click()
+IndexError: list index out of range
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft12.3' class='none'>
+    <td class='errorCase'><div class='testcase'>test_addtermodel_success: 新增设备型号成功</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft12.3')" >
+        error</a>
+
+    <div id='div_ft12.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft12.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft12.3: ('xpath', '//*[@id="app"]//dd[text()=\'\xe4\xb8\x9a\xe5\x8a\xa1\xe7\xae\xa1\xe7\x90\x86\']')
+('xpath', "//input[@placeholder='\xe8\xaf\xb7\xe9\x80\x89\xe6\x8b\xa9']")
+('xpath', "//span[text()='\xe8\xae\xbe\xe5\xa4\x87']")
+[2020-01-02 00:45:49]: INFO - 物品类别选择:设备
+('xpath', "//input[@placeholder='\xe8\xaf\xb7\xe9\x80\x89\xe6\x8b\xa9\xe8\xae\xbe\xe5\xa4\x87\xe5\x90\x8d\xe7\xa7\xb0']")
+Traceback (most recent call last):
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\cases\BusinessManagement\channel_resource1\basic_infomodel_test.py", line 39, in test_addtermodel_success
+    lst[1] = self.oba.select_terminalname(lst[1])
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\pages\Business_management\Basic_Infomanagement\AddModel_Page.py", line 49, in select_terminalname
+    el[0].click()
+IndexError: list index out of range
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft12.4' class='none'>
+    <td class='errorCase'><div class='testcase'>test_check_partsinfo: 检查配件查看详情</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft12.4')" >
+        error</a>
+
+    <div id='div_ft12.4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft12.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft12.4: ('xpath', '//*[@id="app"]//dd[text()=\'\xe4\xb8\x9a\xe5\x8a\xa1\xe7\xae\xa1\xe7\x90\x86\']')
+[2020-01-02 00:46:18]: INFO - 检查数据库
+[2020-01-02 00:46:20]: INFO - 连接数据库。。。
+[2020-01-02 00:46:21]: INFO - 数据库连接完毕
+[2020-01-02 00:46:21]: INFO - 执行sql语句:select d.* from (select a.GOODS_NAME,a.DEVICE_UNIT,case when a.IS_RECOVERY =1 then '是' when a.IS_RECOVERY =2 then '否' ELSE NULL 
+        end case2,a.REMARK as remake1,b.DEVICE_MODEL,(b.UNIT_PRICE/100),b.PROVIDER,b.MANUFACTOR_INFO,b.REMARK,b.FILES 
+        from T_GOODS_TYPE a join T_GOODS_MODEL b on a.id = b.GOODS_ID where a.goods_type = 2 order by b.CREATE_TIME desc)d 
+        where rownum =1
+[('\xe8\x87\xaa\xe5\x8a\xa8\xe5\x8c\x96\xe9\x85\x8d\xe4\xbb\xb65233', '\xe4\xbb\xb6', '\xe5\x90\xa6', '\xe4\xbf\xae\xe6\x94\xb9\xe4\xba\x86\xe9\x85\x8d\xe4\xbb\xb6\xe4\xbf\xa1\xe6\x81\xaf', 'pjsh16360', 150, '\xe4\xb8\x9c\xe9\xa3\x8e', '\xe4\xb8\x9c\xe9\xa3\x8e\xe7\x81\xab\xe7\xae\xad', '\xe4\xbf\xae\xe6\x94\xb9\xe4\xba\x86\xe9\x85\x8d\xe4\xbb\xb6\xe4\xbf\xa1\xe6\x81\xaf', 'http://10.6.0.203:8888/upload/model/dog(9).jpg')]
+[2020-01-02 00:46:21]: INFO - ['\xe8\x87\xaa\xe5\x8a\xa8\xe5\x8c\x96\xe9\x85\x8d\xe4\xbb\xb65233', '\xe4\xbb\xb6', '\xe5\x90\xa6', '\xe4\xbf\xae\xe6\x94\xb9\xe4\xba\x86\xe9\x85\x8d\xe4\xbb\xb6\xe4\xbf\xa1\xe6\x81\xaf', 'pjsh16360', 150, '\xe4\xb8\x9c\xe9\xa3\x8e', '\xe4\xb8\x9c\xe9\xa3\x8e\xe7\x81\xab\xe7\xae\xad', '\xe4\xbf\xae\xe6\x94\xb9\xe4\xba\x86\xe9\x85\x8d\xe4\xbb\xb6\xe4\xbf\xa1\xe6\x81\xaf', 'http://10.6.0.203:8888/upload/model/dog(9).jpg']
+[2020-01-02 00:46:21]: INFO - 检查数据库
+[2020-01-02 00:46:23]: INFO - 连接数据库。。。
+[2020-01-02 00:46:23]: INFO - 数据库连接完毕
+[2020-01-02 00:46:23]: INFO - 执行sql语句:select to_char(rownum),d.GOODS_NAME,c.DEVICE_MODEL,to_char(a.CREATE_TIME ,'yyyy-mm-dd hh24:mi:ss'),b.USER_NAME from T_MODEL_AVAILABLE a 
+        left join T_USER_INFO b on b.user_id = a.create_by left join T_GOODS_MODEL c on a.MODEL_ID = c.id 
+        left join T_GOODS_TYPE d on c.GOODS_ID = d.id where a.parts_id = (select id from T_GOODS_MODEL  
+        where  DEVICE_MODEL = 'pjsh16360')
+[('1', '\xe7\xbb\x88\xe7\xab\xaf\xe6\x9c\xba', 'zdj--test--001', '2020-01-01 09:21:37', 'lin'), ('2', '\xe6\x9f\x9c\xe5\x91\x98\xe6\x9c\xba', 'gyj--test--002', '2020-01-01 09:21:37', 'lin')]
+[2020-01-02 00:46:23]: INFO - ['1', '\xe7\xbb\x88\xe7\xab\xaf\xe6\x9c\xba', 'zdj--test--001', '2020-01-01 09:21:37', 'lin', '2', '\xe6\x9f\x9c\xe5\x91\x98\xe6\x9c\xba', 'gyj--test--002', '2020-01-01 09:21:37', 'lin']
+('xpath', u'//span[text()="\u914d\u4ef6"]')
+Traceback (most recent call last):
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\cases\BusinessManagement\channel_resource1\basic_infomodel_test.py", line 152, in test_check_partsinfo
+    self.obb.select_goodsname(result[0])
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\pages\Business_management\Basic_Infomanagement\Model_Management.py", line 60, in select_goodsname
+    value = data[0]
+IndexError: list index out of range
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft12.5' class='none'>
+    <td class='errorCase'><div class='testcase'>test_check_terminalinfo: 检查设备查看详情</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft12.5')" >
+        error</a>
+
+    <div id='div_ft12.5' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft12.5').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft12.5: ('xpath', '//*[@id="app"]//dd[text()=\'\xe4\xb8\x9a\xe5\x8a\xa1\xe7\xae\xa1\xe7\x90\x86\']')
+[2020-01-02 00:46:52]: INFO - 检查数据库
+[2020-01-02 00:46:54]: INFO - 连接数据库。。。
+[2020-01-02 00:46:54]: INFO - 数据库连接完毕
+[2020-01-02 00:46:54]: INFO - 执行sql语句:select d.* from (select a.GOODS_NAME,a.DEVICE_UNIT,case when a.IS_STANDARD =1 then '是' when a.IS_STANDARD =2 
+        then '否' ELSE NULL end case,case when a.IS_RECOVERY =1 then '是' when a.IS_RECOVERY =2 then '否' ELSE NULL 
+        end case2,a.REMARK as remake1,b.DEVICE_MODEL,(b.UNIT_PRICE/100),b.PROVIDER,b.MANUFACTOR_INFO,b.REMARK,b.FILES 
+        from T_GOODS_TYPE a join T_GOODS_MODEL b on a.id = b.GOODS_ID where a.goods_type = 1 order by b.CREATE_TIME desc)d 
+        where rownum =1
+[('\xe8\x87\xaa\xe5\x8a\xa8\xe5\x8c\x96\xe8\xae\xbe\xe5\xa4\x878361', '\xe5\x8f\xb0', '\xe6\x98\xaf', '\xe5\x90\xa6', '\xe6\x96\xb0\xe5\xa2\x9e\xe8\xae\xbe\xe5\xa4\x87', 'ssxh13179', 15000, '\xe4\xb8\x9c\xe9\xa3\x8e', '\xe4\xb8\x9c\xe9\xa3\x8e\xe7\x81\xab\xe7\xae\xad', '\xe4\xbf\xae\xe6\x94\xb9\xe4\xba\x86\xe8\xae\xbe\xe5\xa4\x87\xe4\xbf\xa1\xe6\x81\xaf', None)]
+[2020-01-02 00:46:54]: INFO - ['\xe8\x87\xaa\xe5\x8a\xa8\xe5\x8c\x96\xe8\xae\xbe\xe5\xa4\x878361', '\xe5\x8f\xb0', '\xe6\x98\xaf', '\xe5\x90\xa6', '\xe6\x96\xb0\xe5\xa2\x9e\xe8\xae\xbe\xe5\xa4\x87', 'ssxh13179', 15000, '\xe4\xb8\x9c\xe9\xa3\x8e', '\xe4\xb8\x9c\xe9\xa3\x8e\xe7\x81\xab\xe7\xae\xad', '\xe4\xbf\xae\xe6\x94\xb9\xe4\xba\x86\xe8\xae\xbe\xe5\xa4\x87\xe4\xbf\xa1\xe6\x81\xaf', None]
+('xpath', u'//span[text()="\u8bbe\u5907"]')
+Traceback (most recent call last):
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\cases\BusinessManagement\channel_resource1\basic_infomodel_test.py", line 122, in test_check_terminalinfo
+    self.obb.select_goodsname(result[0])
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\pages\Business_management\Basic_Infomanagement\Model_Management.py", line 60, in select_goodsname
+    value = data[0]
+IndexError: list index out of range
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft12.6' class='none'>
+    <td class='errorCase'><div class='testcase'>test_modifyparts: 修改配件型号页面</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft12.6')" >
+        error</a>
+
+    <div id='div_ft12.6' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft12.6').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft12.6: ('xpath', '//*[@id="app"]//dd[text()=\'\xe4\xb8\x9a\xe5\x8a\xa1\xe7\xae\xa1\xe7\x90\x86\']')
+('xpath', u'//span[text()="\u914d\u4ef6"]')
+Traceback (most recent call last):
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\cases\BusinessManagement\channel_resource1\basic_infomodel_test.py", line 213, in test_modifyparts
+    self.obb.select_goodsname(u'èªå¨åéä»¶')
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\pages\Business_management\Basic_Infomanagement\Model_Management.py", line 60, in select_goodsname
+    value = data[0]
+IndexError: list index out of range
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft12.7' class='none'>
+    <td class='errorCase'><div class='testcase'>test_modifystatus_close: 修改状态为关闭</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft12.7')" >
+        error</a>
+
+    <div id='div_ft12.7' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft12.7').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft12.7: ('xpath', '//*[@id="app"]//dd[text()=\'\xe4\xb8\x9a\xe5\x8a\xa1\xe7\xae\xa1\xe7\x90\x86\']')
+('xpath', u'//span[text()="\u8bbe\u5907"]')
+Traceback (most recent call last):
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\cases\BusinessManagement\channel_resource1\basic_infomodel_test.py", line 91, in test_modifystatus_close
+    self.obb.select_goodsname(u'èªå¨åè®¾å¤')
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\pages\Business_management\Basic_Infomanagement\Model_Management.py", line 60, in select_goodsname
+    value = data[0]
+IndexError: list index out of range
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft12.8' class='none'>
+    <td class='errorCase'><div class='testcase'>test_modifystatus_open: 修改状态为打开</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft12.8')" >
+        error</a>
+
+    <div id='div_ft12.8' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft12.8').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft12.8: ('xpath', '//*[@id="app"]//dd[text()=\'\xe4\xb8\x9a\xe5\x8a\xa1\xe7\xae\xa1\xe7\x90\x86\']')
+('xpath', u'//span[text()="\u8bbe\u5907"]')
+Traceback (most recent call last):
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\cases\BusinessManagement\channel_resource1\basic_infomodel_test.py", line 103, in test_modifystatus_open
+    self.obb.select_goodsname(u'èªå¨åè®¾å¤')
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\pages\Business_management\Basic_Infomanagement\Model_Management.py", line 60, in select_goodsname
+    value = data[0]
+IndexError: list index out of range
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft12.9' class='none'>
+    <td class='errorCase'><div class='testcase'>test_modifyterminal: 修改设备型号页面</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft12.9')" >
+        error</a>
+
+    <div id='div_ft12.9' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft12.9').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft12.9: ('xpath', '//*[@id="app"]//dd[text()=\'\xe4\xb8\x9a\xe5\x8a\xa1\xe7\xae\xa1\xe7\x90\x86\']')
+('xpath', u'//span[text()="\u8bbe\u5907"]')
+Traceback (most recent call last):
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\cases\BusinessManagement\channel_resource1\basic_infomodel_test.py", line 180, in test_modifyterminal
+    self.obb.select_goodsname(u'èªå¨åè®¾å¤')
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\pages\Business_management\Basic_Infomanagement\Model_Management.py", line 60, in select_goodsname
+    value = data[0]
+IndexError: list index out of range
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='errorClass'>
+    <td>BusinessManagement.channel_resource1.basic_infotype_test.basic_type</td>
+    <td>15</td>
+    <td>10</td>
+    <td>2</td>
+    <td>3</td>
+    <td><a href="javascript:showClassDetail('c13',15)">Detail</a></td>
+</tr>
+
+<tr id='pt13.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_addConsumables_success: 新增其他耗材成功</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt13.1')" >
+        pass</a>
+
+    <div id='div_pt13.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt13.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt13.1: ('xpath', '//*[@id="app"]//dd[text()=\'\xe4\xb8\x9a\xe5\x8a\xa1\xe7\xae\xa1\xe7\x90\x86\']')
+('xpath', "//input[@placeholder='\xe8\xaf\xb7\xe9\x80\x89\xe6\x8b\xa9']")
+('xpath', "//span[text()='\xe8\x80\x97\xe6\x9d\x90']")
+[2020-01-02 00:49:20]: INFO - 物品类别选择:耗材
+('xpath', "//input[@placeholder='\xe8\xaf\xb7\xe9\x80\x89\xe6\x8b\xa9\xe8\x80\x97\xe6\x9d\x90\xe7\xb1\xbb\xe5\x9e\x8b']")
+('xpath', "//span[text()='\xe5\x85\xb6\xe5\xae\x83']")
+[2020-01-02 00:49:22]: INFO - 耗材类型选择:其它
+[2020-01-02 00:49:23]: INFO - 耗材名称输入:自动化耗材4050
+[2020-01-02 00:49:24]: INFO - 耗材编号输入:HCLX
+[2020-01-02 00:49:25]: INFO - 耗材单价(元)输入:150.5
+[2020-01-02 00:49:26]: INFO - 耗材单位输入:件
+[2020-01-02 00:49:28]: INFO - 供应商输入:天猫
+[2020-01-02 00:49:29]: INFO - 厂家信息输入:天猫厂家
+('xpath', '//label[text()="\xe5\xa4\x87\xe6\xb3\xa8"]')
+[2020-01-02 00:49:30]: INFO - 输入备注
+('xpath', "//input[@name='file']/preceding-sibling::i[1]")
+[2020-01-02 00:49:40]: INFO - 上传图片ok
+[2020-01-02 00:49:42]: INFO - 检查数据库
+[2020-01-02 00:49:44]: INFO - 连接数据库。。。
+[2020-01-02 00:49:44]: INFO - 数据库连接完毕
+[2020-01-02 00:49:44]: INFO - 执行sql语句:select goods_type,CONSUMABLES_TYPE,goods_name,CODE,(UNIT_PRICE/100),device_unit,PROVIDER,MANUFACTOR_INFO,REMARK from T_GOODS_TYPE where goods_name = '自动化耗材4050'
+[]
+[2020-01-02 00:49:44]: INFO - []
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt13.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_addbutton_success: 新增按钮成功跳转</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt13.2')" >
+        pass</a>
+
+    <div id='div_pt13.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt13.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt13.2: ('xpath', '//*[@id="app"]//dd[text()=\'\xe4\xb8\x9a\xe5\x8a\xa1\xe7\xae\xa1\xe7\x90\x86\']')
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt13.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_addfacilities_success: 新增设施成功</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt13.3')" >
+        pass</a>
+
+    <div id='div_pt13.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt13.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt13.3: ('xpath', '//*[@id="app"]//dd[text()=\'\xe4\xb8\x9a\xe5\x8a\xa1\xe7\xae\xa1\xe7\x90\x86\']')
+('xpath', "//input[@placeholder='\xe8\xaf\xb7\xe9\x80\x89\xe6\x8b\xa9']")
+('xpath', "//span[text()='\xe8\xae\xbe\xe6\x96\xbd']")
+[2020-01-02 00:50:24]: INFO - 物品类别选择:设施
+[2020-01-02 00:50:26]: INFO - 设施名称输入:自动化设施7158
+[2020-01-02 00:50:27]: INFO - 施编号输入:SSBH
+[2020-01-02 00:50:28]: INFO - 设施单价(元)输入:145.5
+[2020-01-02 00:50:29]: INFO - 设施单位输入:台
+[2020-01-02 00:50:30]: INFO - 供应商输入:天猫
+[2020-01-02 00:50:32]: INFO - 厂家信息输入:天猫厂家
+('xpath', '//label[text()="\xe5\xa4\x87\xe6\xb3\xa8"]')
+[2020-01-02 00:50:33]: INFO - 输入备注
+('xpath', "//input[@name='file']/preceding-sibling::i[1]")
+[2020-01-02 00:50:42]: INFO - 上传图片ok
+[2020-01-02 00:50:44]: INFO - 检查数据库
+[2020-01-02 00:50:46]: INFO - 连接数据库。。。
+[2020-01-02 00:50:46]: INFO - 数据库连接完毕
+[2020-01-02 00:50:46]: INFO - 执行sql语句:select goods_type,goods_name,CODE,(UNIT_PRICE/100),device_unit,PROVIDER,MANUFACTOR_INFO,REMARK from T_GOODS_TYPE where goods_name = '自动化设施7158'
+[]
+[2020-01-02 00:50:46]: INFO - []
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt13.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_addparts_success: 新增配件成功</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt13.4')" >
+        pass</a>
+
+    <div id='div_pt13.4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt13.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt13.4: ('xpath', '//*[@id="app"]//dd[text()=\'\xe4\xb8\x9a\xe5\x8a\xa1\xe7\xae\xa1\xe7\x90\x86\']')
+('xpath', "//input[@placeholder='\xe8\xaf\xb7\xe9\x80\x89\xe6\x8b\xa9']")
+('xpath', "//span[text()='\xe9\x85\x8d\xe4\xbb\xb6']")
+[2020-01-02 00:51:06]: INFO - 物品类别选择:配件
+[2020-01-02 00:51:08]: INFO - 配件名称输入:自动化配件2361
+[2020-01-02 00:51:09]: INFO - 配件单位输入:件
+('xpath', "//label[text()='\xe6\x98\xaf\xe5\x90\xa6\xe5\x9b\x9e\xe6\x94\xb6']/following-sibling::div/div/label[1]/span/span")
+[2020-01-02 00:51:10]: INFO - 是否回收选择:是
+('xpath', '//label[text()="\xe5\xa4\x87\xe6\xb3\xa8"]')
+[2020-01-02 00:51:11]: INFO - 输入备注
+[2020-01-02 00:51:13]: INFO - 检查数据库
+[2020-01-02 00:51:15]: INFO - 连接数据库。。。
+[2020-01-02 00:51:15]: INFO - 数据库连接完毕
+[2020-01-02 00:51:15]: INFO - 执行sql语句:select goods_type,goods_name,device_unit,IS_RECOVERY,REMARK from T_GOODS_TYPE where goods_name = '自动化配件2361'
+[]
+[2020-01-02 00:51:15]: INFO - []
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt13.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_addterminal_success: 新增其他设备成功</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt13.5')" >
+        pass</a>
+
+    <div id='div_pt13.5' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt13.5').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt13.5: ('xpath', '//*[@id="app"]//dd[text()=\'\xe4\xb8\x9a\xe5\x8a\xa1\xe7\xae\xa1\xe7\x90\x86\']')
+('xpath', "//input[@placeholder='\xe8\xaf\xb7\xe9\x80\x89\xe6\x8b\xa9']")
+('xpath', "//span[text()='\xe8\xae\xbe\xe5\xa4\x87']")
+[2020-01-02 00:51:35]: INFO - 物品类别选择:设备
+('xpath', "//input[@placeholder='\xe8\xaf\xb7\xe9\x80\x89\xe6\x8b\xa9\xe8\xae\xbe\xe5\xa4\x87\xe7\xb1\xbb\xe5\x9e\x8b']")
+('xpath', "//span[text()='\xe5\x85\xb6\xe5\xae\x83']")
+[2020-01-02 00:51:37]: INFO - 设备类型选择:其它
+[2020-01-02 00:51:39]: INFO - 设备名称输入:自动化设备4873
+[2020-01-02 00:51:40]: INFO - 设备单位输入:台
+('xpath', "//label[text()='\xe6\x98\xaf\xe5\x90\xa6\xe6\xa0\x87\xe9\x85\x8d']/following-sibling::div/div/label[1]/span/span")
+[2020-01-02 00:51:40]: INFO - 是否标配选择:是
+('xpath', "//label[text()='\xe6\x98\xaf\xe5\x90\xa6\xe5\x9b\x9e\xe6\x94\xb6']/following-sibling::div/div/label[2]/span/span")
+[2020-01-02 00:51:40]: INFO - 是否回收选择:否
+('xpath', '//label[text()="\xe5\xa4\x87\xe6\xb3\xa8"]')
+[2020-01-02 00:51:41]: INFO - 输入备注
+[2020-01-02 00:51:43]: INFO - 检查数据库
+[2020-01-02 00:51:45]: INFO - 连接数据库。。。
+[2020-01-02 00:51:46]: INFO - 数据库连接完毕
+[2020-01-02 00:51:46]: INFO - 执行sql语句:select goods_type,device_type,goods_name,device_unit,IS_STANDARD,IS_RECOVERY,REMARK from T_GOODS_TYPE where goods_name = '自动化设备4873'
+[]
+[2020-01-02 00:51:46]: INFO - []
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft13.6' class='none'>
+    <td class='errorCase'><div class='testcase'>test_check_haocaiinfo: 检查耗材查看详情</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft13.6')" >
+        error</a>
+
+    <div id='div_ft13.6' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft13.6').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft13.6: ('xpath', '//*[@id="app"]//dd[text()=\'\xe4\xb8\x9a\xe5\x8a\xa1\xe7\xae\xa1\xe7\x90\x86\']')
+[2020-01-02 00:52:04]: INFO - 检查数据库
+[2020-01-02 00:52:06]: INFO - 连接数据库。。。
+[2020-01-02 00:52:06]: INFO - 数据库连接完毕
+[2020-01-02 00:52:06]: INFO - 执行sql语句:SELECT a.* FROM (SELECT goods_name,CODE,(UNIT_PRICE/100),device_unit,PROVIDER,MANUFACTOR_INFO,REMARK
+         FROM T_GOODS_TYPE WHERE goods_type = 3 ORDER BY create_time ) a WHERE ROWNUM =1
+[('\xe8\x87\xaa\xe5\x8a\xa8\xe5\x8c\x96\xe8\x80\x97\xe6\x9d\x90806', 'HCBH', 180, '\xe4\xbb\xb6', '\xe6\xb7\x98\xe5\xae\x9d\xe4\xbe\x9b\xe5\xba\x94\xe5\x95\x86', '\xe6\xb7\x98\xe5\xae\x9d\xe5\x8e\x82\xe5\xae\xb6', '\xe4\xbf\xae\xe6\x94\xb9\xe4\xba\x86\xe8\x80\x97\xe6\x9d\x90\xe4\xbf\xa1\xe6\x81\xaf')]
+[2020-01-02 00:52:06]: INFO - ['\xe8\x87\xaa\xe5\x8a\xa8\xe5\x8c\x96\xe8\x80\x97\xe6\x9d\x90806', 'HCBH', 180, '\xe4\xbb\xb6', '\xe6\xb7\x98\xe5\xae\x9d\xe4\xbe\x9b\xe5\xba\x94\xe5\x95\x86', '\xe6\xb7\x98\xe5\xae\x9d\xe5\x8e\x82\xe5\xae\xb6', '\xe4\xbf\xae\xe6\x94\xb9\xe4\xba\x86\xe8\x80\x97\xe6\x9d\x90\xe4\xbf\xa1\xe6\x81\xaf']
+('xpath', u'//span[text()="\u8017\u6750"]')
+Traceback (most recent call last):
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\cases\BusinessManagement\channel_resource1\basic_infotype_test.py", line 282, in test_check_haocaiinfo
+    self.obb.select_goodsname(result[0])
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\pages\Business_management\Basic_Infomanagement\Type_Management.py", line 64, in select_goodsname
+    value = data[0]
+IndexError: list index out of range
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft13.7' class='none'>
+    <td class='errorCase'><div class='testcase'>test_check_partsinfo: 检查配件查看详情</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft13.7')" >
+        error</a>
+
+    <div id='div_ft13.7' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft13.7').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft13.7: ('xpath', '//*[@id="app"]//dd[text()=\'\xe4\xb8\x9a\xe5\x8a\xa1\xe7\xae\xa1\xe7\x90\x86\']')
+[2020-01-02 00:52:35]: INFO - 检查数据库
+[2020-01-02 00:52:37]: INFO - 连接数据库。。。
+[2020-01-02 00:52:37]: INFO - 数据库连接完毕
+[2020-01-02 00:52:37]: INFO - 执行sql语句:SELECT a.* FROM (SELECT goods_name,device_unit,
+CASE
+
+    WHEN IS_RECOVERY = 1 THEN
+    '是' 
+    WHEN IS_RECOVERY = 2 THEN
+    '否' ELSE NULL 
+    END CASE1,
+    REMARK FROM T_GOODS_TYPE WHERE goods_type = 2 ORDER BY create_time ) a WHERE ROWNUM =1
+[('\xe8\x87\xaa\xe5\x8a\xa8\xe5\x8c\x96\xe9\x85\x8d\xe4\xbb\xb65233', '\xe4\xbb\xb6', '\xe5\x90\xa6', '\xe4\xbf\xae\xe6\x94\xb9\xe4\xba\x86\xe9\x85\x8d\xe4\xbb\xb6\xe4\xbf\xa1\xe6\x81\xaf')]
+[2020-01-02 00:52:37]: INFO - ['\xe8\x87\xaa\xe5\x8a\xa8\xe5\x8c\x96\xe9\x85\x8d\xe4\xbb\xb65233', '\xe4\xbb\xb6', '\xe5\x90\xa6', '\xe4\xbf\xae\xe6\x94\xb9\xe4\xba\x86\xe9\x85\x8d\xe4\xbb\xb6\xe4\xbf\xa1\xe6\x81\xaf']
+('xpath', u'//span[text()="\u914d\u4ef6"]')
+Traceback (most recent call last):
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\cases\BusinessManagement\channel_resource1\basic_infotype_test.py", line 266, in test_check_partsinfo
+    self.obb.select_goodsname(result[0])
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\pages\Business_management\Basic_Infomanagement\Type_Management.py", line 64, in select_goodsname
+    value = data[0]
+IndexError: list index out of range
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft13.8' class='none'>
+    <td class='failCase'><div class='testcase'>test_check_sheshiinfo: 检查设施查看详情</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft13.8')" >
+        fail</a>
+
+    <div id='div_ft13.8' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft13.8').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft13.8: ('xpath', '//*[@id="app"]//dd[text()=\'\xe4\xb8\x9a\xe5\x8a\xa1\xe7\xae\xa1\xe7\x90\x86\']')
+[2020-01-02 00:53:06]: INFO - 检查数据库
+[2020-01-02 00:53:08]: INFO - 连接数据库。。。
+[2020-01-02 00:53:09]: INFO - 数据库连接完毕
+[2020-01-02 00:53:09]: INFO - 执行sql语句:SELECT a.* FROM (SELECT goods_name,CODE,(UNIT_PRICE/100),device_unit,PROVIDER,MANUFACTOR_INFO,REMARK
+         FROM T_GOODS_TYPE WHERE goods_type = 4 ORDER BY create_time ) a WHERE ROWNUM =1
+[('\xe6\x9f\x9c\xe5\x91\x98\xe5\x8f\xb0', None, 162.1, '\xe5\x8f\xb0', None, None, None)]
+[2020-01-02 00:53:09]: INFO - ['\xe6\x9f\x9c\xe5\x91\x98\xe5\x8f\xb0', None, 162.1, '\xe5\x8f\xb0', None, None, None]
+('xpath', u'//span[text()="\u8bbe\u65bd"]')
+[u'\u67dc\u5458\u53f0', None, u'500', u'\u53f0', u'\u5929\u732b', u'\u5929\u732b', u'\u65b0\u5efa\u67dc\u5458\u53f0']
+Traceback (most recent call last):
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\cases\BusinessManagement\channel_resource1\basic_infotype_test.py", line 310, in test_check_sheshiinfo
+    self.assertEqual(str(result[i]), info[i])
+AssertionError: '162.1' != u'500'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft13.9' class='none'>
+    <td class='errorCase'><div class='testcase'>test_check_terminalinfo: 检查设备查看详情</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft13.9')" >
+        error</a>
+
+    <div id='div_ft13.9' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft13.9').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft13.9: ('xpath', '//*[@id="app"]//dd[text()=\'\xe4\xb8\x9a\xe5\x8a\xa1\xe7\xae\xa1\xe7\x90\x86\']')
+[2020-01-02 00:53:32]: INFO - 检查数据库
+[2020-01-02 00:53:34]: INFO - 连接数据库。。。
+[2020-01-02 00:53:34]: INFO - 数据库连接完毕
+[2020-01-02 00:53:34]: INFO - 执行sql语句:SELECT a.* FROM (SELECT goods_name,device_unit,
+CASE
+	
+	WHEN IS_STANDARD = 1 THEN
+	'是' 
+	WHEN IS_STANDARD = 2 THEN
+	'否' ELSE NULL 
+	END CASE,
+CASE
+	
+	WHEN IS_RECOVERY = 1 THEN
+	'是' 
+	WHEN IS_RECOVERY = 2 THEN
+	'否' ELSE NULL 
+	END CASE1,
+	REMARK FROM T_GOODS_TYPE WHERE goods_type = 1 ORDER BY create_time ) a WHERE ROWNUM =1
+[('\xe8\x87\xaa\xe5\x8a\xa8\xe5\x8c\x96\xe8\xae\xbe\xe5\xa4\x878462', '\xe5\x8f\xb0', '\xe5\x90\xa6', '\xe6\x98\xaf', '\xe4\xbf\xae\xe6\x94\xb9\xe4\xba\x86\xe8\xae\xbe\xe5\xa4\x87\xe4\xbf\xa1\xe6\x81\xaf')]
+[2020-01-02 00:53:34]: INFO - ['\xe8\x87\xaa\xe5\x8a\xa8\xe5\x8c\x96\xe8\xae\xbe\xe5\xa4\x878462', '\xe5\x8f\xb0', '\xe5\x90\xa6', '\xe6\x98\xaf', '\xe4\xbf\xae\xe6\x94\xb9\xe4\xba\x86\xe8\xae\xbe\xe5\xa4\x87\xe4\xbf\xa1\xe6\x81\xaf']
+('xpath', u'//span[text()="\u8bbe\u5907"]')
+Traceback (most recent call last):
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\cases\BusinessManagement\channel_resource1\basic_infotype_test.py", line 244, in test_check_terminalinfo
+    self.obb.select_goodsname(result[0])
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\pages\Business_management\Basic_Infomanagement\Type_Management.py", line 64, in select_goodsname
+    value = data[0]
+IndexError: list index out of range
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt13.10' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_modifyhaocai: 修改耗材页面</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt13.10')" >
+        pass</a>
+
+    <div id='div_pt13.10' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt13.10').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt13.10: ('xpath', '//*[@id="app"]//dd[text()=\'\xe4\xb8\x9a\xe5\x8a\xa1\xe7\xae\xa1\xe7\x90\x86\']')
+('xpath', u'//span[text()="\u8017\u6750"]')
+开
+('xpath', "//tr[@class='el-table__row']/td[5]/div/div/span[2]")
+[2020-01-02 00:54:10]: INFO - 耗材名称输入:自动化耗材7964
+[2020-01-02 00:54:11]: INFO - 耗材编号输入:HCBH
+[2020-01-02 00:54:13]: INFO - 耗材单价(元)输入:180
+[2020-01-02 00:54:14]: INFO - 耗材单位输入:件
+[2020-01-02 00:54:15]: INFO - 供应商输入:淘宝供应商
+[2020-01-02 00:54:16]: INFO - 厂家信息输入:淘宝厂家
+('xpath', '//label[text()="\xe5\xa4\x87\xe6\xb3\xa8"]')
+[2020-01-02 00:54:18]: INFO - 输入备注
+[2020-01-02 00:54:29]: INFO - 删除全部的图片
+('xpath', "//input[@name='file']/preceding-sibling::i[1]")
+[2020-01-02 00:54:38]: INFO - 上传图片ok
+[2020-01-02 00:54:40]: INFO - 检查数据库
+[2020-01-02 00:54:42]: INFO - 连接数据库。。。
+[2020-01-02 00:54:42]: INFO - 数据库连接完毕
+[2020-01-02 00:54:42]: INFO - 执行sql语句:select CONSUMABLES_TYPE,goods_name,CODE,(UNIT_PRICE/100),device_unit,PROVIDER,MANUFACTOR_INFO,REMARK,FILES from T_GOODS_TYPE where goods_name = '自动化耗材7964'
+[]
+[2020-01-02 00:54:42]: INFO - []
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt13.11' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_modifyparts: 修改配件页面</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt13.11')" >
+        pass</a>
+
+    <div id='div_pt13.11' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt13.11').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt13.11: ('xpath', '//*[@id="app"]//dd[text()=\'\xe4\xb8\x9a\xe5\x8a\xa1\xe7\xae\xa1\xe7\x90\x86\']')
+('xpath', u'//span[text()="\u914d\u4ef6"]')
+开
+('xpath', "//tr[@class='el-table__row']/td[5]/div/div/span[2]")
+[2020-01-02 00:55:08]: INFO - 配件名称输入:自动化配件3900
+[2020-01-02 00:55:09]: INFO - 配件单位输入:件
+('xpath', "//label[text()='\xe6\x98\xaf\xe5\x90\xa6\xe5\x9b\x9e\xe6\x94\xb6']/following-sibling::div/div/label[2]/span/span")
+[2020-01-02 00:55:09]: INFO - 是否回收选择:否
+('xpath', '//label[text()="\xe5\xa4\x87\xe6\xb3\xa8"]')
+[2020-01-02 00:55:11]: INFO - 输入备注
+[2020-01-02 00:55:13]: INFO - 检查数据库
+[2020-01-02 00:55:15]: INFO - 连接数据库。。。
+[2020-01-02 00:55:15]: INFO - 数据库连接完毕
+[2020-01-02 00:55:15]: INFO - 执行sql语句:select goods_type,goods_name,device_unit,IS_RECOVERY,REMARK from T_GOODS_TYPE where goods_name = '自动化配件3900'
+[]
+[2020-01-02 00:55:15]: INFO - []
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt13.12' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_modifysheshi: 修改设施页面</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt13.12')" >
+        pass</a>
+
+    <div id='div_pt13.12' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt13.12').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt13.12: ('xpath', '//*[@id="app"]//dd[text()=\'\xe4\xb8\x9a\xe5\x8a\xa1\xe7\xae\xa1\xe7\x90\x86\']')
+('xpath', u'//span[text()="\u8bbe\u65bd"]')
+开
+('xpath', "//tr[@class='el-table__row']/td[5]/div/div/span[2]")
+[2020-01-02 00:55:41]: INFO - 设施名称输入:自动化设施6106
+[2020-01-02 00:55:42]: INFO - 施编号输入:ssbh
+[2020-01-02 00:55:43]: INFO - 设施单价(元)输入:150
+[2020-01-02 00:55:44]: INFO - 设施单位输入:台
+[2020-01-02 00:55:45]: INFO - 供应商输入:天猫供应商
+[2020-01-02 00:55:46]: INFO - 厂家信息输入:天猫厂家
+('xpath', '//label[text()="\xe5\xa4\x87\xe6\xb3\xa8"]')
+[2020-01-02 00:55:48]: INFO - 输入备注
+[2020-01-02 00:55:59]: INFO - 删除全部的图片
+('xpath', "//input[@name='file']/preceding-sibling::i[1]")
+[2020-01-02 00:56:08]: INFO - 上传图片ok
+[2020-01-02 00:56:10]: INFO - 检查数据库
+[2020-01-02 00:56:12]: INFO - 连接数据库。。。
+[2020-01-02 00:56:12]: INFO - 数据库连接完毕
+[2020-01-02 00:56:12]: INFO - 执行sql语句:select goods_type,goods_name,CODE,(UNIT_PRICE/100),device_unit,PROVIDER,MANUFACTOR_INFO,REMARK,FILES from T_GOODS_TYPE where goods_name = '自动化设施6106'
+[]
+[2020-01-02 00:56:12]: INFO - []
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft13.13' class='none'>
+    <td class='failCase'><div class='testcase'>test_modifystatus_close: 修改状态为关闭</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft13.13')" >
+        fail</a>
+
+    <div id='div_ft13.13' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft13.13').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft13.13: ('xpath', '//*[@id="app"]//dd[text()=\'\xe4\xb8\x9a\xe5\x8a\xa1\xe7\xae\xa1\xe7\x90\x86\']')
+('xpath', u'//span[text()="\u8bbe\u5907"]')
+('xpath', "//div[@class='el-scrollbar']/div/ul/li/span[text()='\xe5\xbc\x80']")
+('xpath', "//tr[@class='el-table__row']/td[5]/div/div/span[2]")
+[2020-01-02 00:56:35]: INFO - 检查数据库
+[2020-01-02 00:56:37]: INFO - 连接数据库。。。
+[2020-01-02 00:56:37]: INFO - 数据库连接完毕
+[2020-01-02 00:56:37]: INFO - 执行sql语句:select status from t_goods_type where goods_type = 1 and goods_name = '终端机'
+[(1,)]
+[2020-01-02 00:56:37]: INFO - [1]
+Traceback (most recent call last):
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\cases\BusinessManagement\channel_resource1\basic_infotype_test.py", line 207, in test_modifystatus_close
+    self.assertEqual(self.status['å³'],result[0])
+AssertionError: 2 != 1
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt13.14' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_modifystatus_open: 修改状态为打开</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt13.14')" >
+        pass</a>
+
+    <div id='div_pt13.14' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt13.14').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt13.14: ('xpath', '//*[@id="app"]//dd[text()=\'\xe4\xb8\x9a\xe5\x8a\xa1\xe7\xae\xa1\xe7\x90\x86\']')
+('xpath', u'//span[text()="\u8bbe\u5907"]')
+('xpath', "//div[@class='el-scrollbar']/div/ul/li/span[text()='\xe5\x85\xb3']")
+('xpath', "//tr[@class='el-table__row']/td[5]/div/div/span[2]")
+[2020-01-02 00:57:00]: INFO - 检查数据库
+[2020-01-02 00:57:02]: INFO - 连接数据库。。。
+[2020-01-02 00:57:02]: INFO - 数据库连接完毕
+[2020-01-02 00:57:02]: INFO - 执行sql语句:select status from t_goods_type where goods_type = 1 and goods_name = '终端机'
+[(1,)]
+[2020-01-02 00:57:02]: INFO - [1]
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt13.15' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_modifyterminal: 修改设备页面</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt13.15')" >
+        pass</a>
+
+    <div id='div_pt13.15' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt13.15').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt13.15: ('xpath', '//*[@id="app"]//dd[text()=\'\xe4\xb8\x9a\xe5\x8a\xa1\xe7\xae\xa1\xe7\x90\x86\']')
+('xpath', u'//span[text()="\u8bbe\u5907"]')
+开
+('xpath', "//tr[@class='el-table__row']/td[5]/div/div/span[2]")
+[2020-01-02 00:57:28]: INFO - 设备名称输入:自动化设备4981
+[2020-01-02 00:57:29]: INFO - 设备单位输入:台
+('xpath', "//label[text()='\xe6\x98\xaf\xe5\x90\xa6\xe6\xa0\x87\xe9\x85\x8d']/following-sibling::div/div/label[2]/span/span")
+[2020-01-02 00:57:29]: INFO - 是否标配选择:否
+('xpath', "//label[text()='\xe6\x98\xaf\xe5\x90\xa6\xe5\x9b\x9e\xe6\x94\xb6']/following-sibling::div/div/label[1]/span/span")
+[2020-01-02 00:57:30]: INFO - 是否回收选择:是
+('xpath', '//label[text()="\xe5\xa4\x87\xe6\xb3\xa8"]')
+[2020-01-02 00:57:31]: INFO - 输入备注
+[2020-01-02 00:57:33]: INFO - 检查数据库
+[2020-01-02 00:57:35]: INFO - 连接数据库。。。
+[2020-01-02 00:57:35]: INFO - 数据库连接完毕
+[2020-01-02 00:57:35]: INFO - 执行sql语句:select device_type,goods_name,device_unit,IS_STANDARD,IS_RECOVERY,REMARK from T_GOODS_TYPE where goods_name = '自动化设备4981'
+[]
+[2020-01-02 00:57:35]: INFO - []
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>BusinessManagement.channel_resource_manage.channel_resource_manage_inventory_manage_test.InventoryManageConsumableListTest: 库存管理-耗材列表测试</td>
+    <td>7</td>
+    <td>7</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c14',7)">Detail</a></td>
+</tr>
+
+<tr id='pt14.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_consumable_list_check: 耗材列表查看</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt14.1')" >
+        pass</a>
+
+    <div id='div_pt14.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt14.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt14.1: [2020-01-02 00:57:43]: INFO - 开始登录
+(u'\u6295\u6ce8\u5361', u'\u6295\u6ce8\u5361')
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt14.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_consumable_list_check_reset: 耗材列表查看中的重置</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt14.2')" >
+        pass</a>
+
+    <div id='div_pt14.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt14.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt14.2: [2020-01-02 00:58:13]: INFO - 开始登录
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt14.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_consumable_list_export_all: 耗材列表导出当前</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt14.3')" >
+        pass</a>
+
+    <div id='div_pt14.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt14.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt14.3: [2020-01-02 00:58:41]: INFO - 开始登录
+已删除文件C:\Users\Bon\Downloads\耗材库存数据.xls
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt14.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_consumable_list_export_present: 耗材列表导出当前</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt14.4')" >
+        pass</a>
+
+    <div id='div_pt14.4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt14.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt14.4: [2020-01-02 00:59:10]: INFO - 开始登录
+已删除文件C:\Users\Bon\Downloads\耗材库存数据.xls
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt14.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_consumable_list_print: 耗材列表打印</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt14.5')" >
+        pass</a>
+
+    <div id='div_pt14.5' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt14.5').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt14.5: [2020-01-02 00:59:40]: INFO - 开始登录
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt14.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_consumable_list_reset: 耗材列表重置</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt14.6')" >
+        pass</a>
+
+    <div id='div_pt14.6' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt14.6').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt14.6: [2020-01-02 01:00:01]: INFO - 开始登录
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt14.7' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_consumable_list_search: 耗材列表查询</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt14.7')" >
+        pass</a>
+
+    <div id='div_pt14.7' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt14.7').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt14.7: [2020-01-02 01:00:28]: INFO - 开始登录
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>BusinessManagement.channel_resource_manage.channel_resource_manage_inventory_manage_test.InventoryManageDeviceListTest: 库存管理-设备列表测试</td>
+    <td>7</td>
+    <td>7</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c15',7)">Detail</a></td>
+</tr>
+
+<tr id='pt15.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_device_list_check: 设备列表查看</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt15.1')" >
+        pass</a>
+
+    <div id='div_pt15.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt15.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt15.1: [2020-01-02 01:00:56]: INFO - 开始登录
+(u'\u67dc\u5458\u673a', u'\u67dc\u5458\u673a')
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt15.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_device_list_check_reset: 设备列表查看中的重置</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt15.2')" >
+        pass</a>
+
+    <div id='div_pt15.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt15.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt15.2: [2020-01-02 01:01:19]: INFO - 开始登录
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt15.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_device_list_export_all: 设备列表导出当前</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt15.3')" >
+        pass</a>
+
+    <div id='div_pt15.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt15.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt15.3: [2020-01-02 01:01:54]: INFO - 开始登录
+已删除文件C:\Users\Bon\Downloads\设备库存数据.xls
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt15.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_device_list_export_present: 设备列表导出当前</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt15.4')" >
+        pass</a>
+
+    <div id='div_pt15.4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt15.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt15.4: [2020-01-02 01:02:24]: INFO - 开始登录
+3
+已删除文件C:\Users\Bon\Downloads\设备库存数据.xls
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt15.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_device_list_print: 设备列表打印</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt15.5')" >
+        pass</a>
+
+    <div id='div_pt15.5' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt15.5').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt15.5: [2020-01-02 01:02:54]: INFO - 开始登录
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt15.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_device_list_reset: 设备列表重置</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt15.6')" >
+        pass</a>
+
+    <div id='div_pt15.6' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt15.6').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt15.6: [2020-01-02 01:03:20]: INFO - 开始登录
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt15.7' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_device_list_search: 设备列表查询</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt15.7')" >
+        pass</a>
+
+    <div id='div_pt15.7' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt15.7').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt15.7: [2020-01-02 01:03:52]: INFO - 开始登录
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='errorClass'>
+    <td>BusinessManagement.channel_resource_manage.channel_resource_manage_inventory_manage_test.InventoryManageFacilityListTest: 库存管理-设施列表测试</td>
+    <td>7</td>
+    <td>3</td>
+    <td>0</td>
+    <td>4</td>
+    <td><a href="javascript:showClassDetail('c16',7)">Detail</a></td>
+</tr>
+
+<tr id='ft16.1' class='none'>
+    <td class='errorCase'><div class='testcase'>test_facility_list_check: 设施列表查看</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft16.1')" >
+        error</a>
+
+    <div id='div_ft16.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft16.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft16.1: [2020-01-02 01:04:21]: INFO - 开始登录
+Traceback (most recent call last):
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\cases\BusinessManagement\channel_resource_manage\channel_resource_manage_inventory_manage_test.py", line 123, in test_facility_list_check
+    search_list=[self.get_table_cell_text(1,2),u'']
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\pages\base_page.py", line 632, in get_table_cell_text
+    return self.find_element_for_text(cell_loc %(list_nun,column_num)).text
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\pages\base_page.py", line 320, in find_element_for_text
+    visible_element=WebDriverWait(self.driver,15).until(EC.visibility_of_element_located((By.XPATH,element_loc)))
+  File "D:\python27\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+TimeoutException: Message: 
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft16.2' class='none'>
+    <td class='errorCase'><div class='testcase'>test_facility_list_check_reset: 设施列表查看中的重置</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft16.2')" >
+        error</a>
+
+    <div id='div_ft16.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft16.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft16.2: [2020-01-02 01:04:58]: INFO - 开始登录
+Traceback (most recent call last):
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\cases\BusinessManagement\channel_resource_manage\channel_resource_manage_inventory_manage_test.py", line 138, in test_facility_list_check_reset
+    search_list=[self.get_table_cell_text(1,2),u'']
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\pages\base_page.py", line 632, in get_table_cell_text
+    return self.find_element_for_text(cell_loc %(list_nun,column_num)).text
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\pages\base_page.py", line 320, in find_element_for_text
+    visible_element=WebDriverWait(self.driver,15).until(EC.visibility_of_element_located((By.XPATH,element_loc)))
+  File "D:\python27\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+TimeoutException: Message: 
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt16.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_facility_list_export_all: 设施列表导出当前</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt16.3')" >
+        pass</a>
+
+    <div id='div_pt16.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt16.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt16.3: [2020-01-02 01:05:36]: INFO - 开始登录
+已删除文件C:\Users\Bon\Downloads\设施库存数据.xls
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt16.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_facility_list_export_present: 设施列表导出当前</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt16.4')" >
+        pass</a>
+
+    <div id='div_pt16.4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt16.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt16.4: [2020-01-02 01:06:05]: INFO - 开始登录
+已删除文件C:\Users\Bon\Downloads\设施库存数据.xls
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt16.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_facility_list_print: 设备列表打印</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt16.5')" >
+        pass</a>
+
+    <div id='div_pt16.5' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt16.5').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt16.5: [2020-01-02 01:06:35]: INFO - 开始登录
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft16.6' class='none'>
+    <td class='errorCase'><div class='testcase'>test_facility_list_reset: 设施列表重置</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft16.6')" >
+        error</a>
+
+    <div id='div_ft16.6' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft16.6').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft16.6: [2020-01-02 01:06:57]: INFO - 开始登录
+Traceback (most recent call last):
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\cases\BusinessManagement\channel_resource_manage\channel_resource_manage_inventory_manage_test.py", line 108, in test_facility_list_reset
+    goods_name=self.get_table_cell_text(1,4)
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\pages\base_page.py", line 632, in get_table_cell_text
+    return self.find_element_for_text(cell_loc %(list_nun,column_num)).text
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\pages\base_page.py", line 320, in find_element_for_text
+    visible_element=WebDriverWait(self.driver,15).until(EC.visibility_of_element_located((By.XPATH,element_loc)))
+  File "D:\python27\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+TimeoutException: Message: 
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft16.7' class='none'>
+    <td class='errorCase'><div class='testcase'>test_facility_list_search: 设施列表查询</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft16.7')" >
+        error</a>
+
+    <div id='div_ft16.7' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft16.7').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft16.7: [2020-01-02 01:07:35]: INFO - 开始登录
+Traceback (most recent call last):
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\cases\BusinessManagement\channel_resource_manage\channel_resource_manage_inventory_manage_test.py", line 99, in test_facility_list_search
+    facility_name=self.get_table_cell_text(1,2)
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\pages\base_page.py", line 632, in get_table_cell_text
+    return self.find_element_for_text(cell_loc %(list_nun,column_num)).text
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\pages\base_page.py", line 320, in find_element_for_text
+    visible_element=WebDriverWait(self.driver,15).until(EC.visibility_of_element_located((By.XPATH,element_loc)))
+  File "D:\python27\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+TimeoutException: Message: 
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='failClass'>
+    <td>BusinessManagement.channel_resource_manage.channel_resource_manage_inventory_manage_test.InventoryManageFittingListTest: 库存管理-配件列表测试</td>
+    <td>7</td>
+    <td>6</td>
+    <td>1</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c17',7)">Detail</a></td>
+</tr>
+
+<tr id='pt17.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_fitting_list_check: 配件列表查看</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt17.1')" >
+        pass</a>
+
+    <div id='div_pt17.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt17.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt17.1: [2020-01-02 01:08:13]: INFO - 开始登录
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft17.2' class='none'>
+    <td class='failCase'><div class='testcase'>test_fitting_list_check_reset: 配件列表查看中的重置</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft17.2')" >
+        fail</a>
+
+    <div id='div_ft17.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft17.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft17.2: [2020-01-02 01:08:36]: INFO - 开始登录
+(u'14', u'14')
+Traceback (most recent call last):
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\cases\BusinessManagement\channel_resource_manage\channel_resource_manage_inventory_manage_test.py", line 304, in test_fitting_list_check_reset
+    self.assert_result_not_equal(count_num,reset_count,u'éä»¶åè¡¨æ¥çä¸­çéç½®')
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\pages\base_page.py", line 684, in assert_result_not_equal
+    self.assertNotEqual(expected,actual)
+AssertionError: u'14' == u'14'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt17.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_fitting_list_export_all: 配件列表导出全部</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt17.3')" >
+        pass</a>
+
+    <div id='div_pt17.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt17.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt17.3: [2020-01-02 01:09:05]: INFO - 开始登录
+已删除文件C:\Users\Bon\Downloads\配件库存数据.xls
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt17.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_fitting_list_export_present: 配件列表导出当前</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt17.4')" >
+        pass</a>
+
+    <div id='div_pt17.4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt17.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt17.4: [2020-01-02 01:09:35]: INFO - 开始登录
+已删除文件C:\Users\Bon\Downloads\配件库存数据.xls
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt17.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_fitting_list_print: 配件列表打印</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt17.5')" >
+        pass</a>
+
+    <div id='div_pt17.5' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt17.5').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt17.5: [2020-01-02 01:10:05]: INFO - 开始登录
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt17.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_fitting_list_reset: 配件列表重置</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt17.6')" >
+        pass</a>
+
+    <div id='div_pt17.6' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt17.6').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt17.6: [2020-01-02 01:10:27]: INFO - 开始登录
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt17.7' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_fitting_list_search: 配件列表查询</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt17.7')" >
+        pass</a>
+
+    <div id='div_pt17.7' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt17.7').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt17.7: [2020-01-02 01:10:54]: INFO - 开始登录
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='errorClass'>
+    <td>BusinessManagement.channel_resource_manage.channel_resource_manage_ledger_manage_test.LedgerManageTest: 台账管理测试</td>
+    <td>11</td>
+    <td>7</td>
+    <td>2</td>
+    <td>2</td>
+    <td><a href="javascript:showClassDetail('c18',11)">Detail</a></td>
+</tr>
+
+<tr id='ft18.1' class='none'>
+    <td class='failCase'><div class='testcase'>test_check_detail_ledger: 台账管理查看详情</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft18.1')" >
+        fail</a>
+
+    <div id='div_ft18.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft18.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft18.1: [2020-01-02 01:11:23]: INFO - 开始登录
+Traceback (most recent call last):
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\cases\BusinessManagement\channel_resource_manage\channel_resource_manage_ledger_manage_test.py", line 49, in test_check_detail_ledger
+    self.assert_result_equal(depot_name,detail_depot,u'å°è´¦ç®¡ç-æ¥çè¯¦æ')
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\pages\base_page.py", line 676, in assert_result_equal
+    self.assertEqual(expected,actual)
+AssertionError: u'\u6e56\u5357\u7701\u4ed3\u5e93' != u'1'
+- æ¹åçä»åº
++ 1
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt18.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_ledger_detail_export_all: 台账管理明细中的导出全部</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt18.2')" >
+        pass</a>
+
+    <div id='div_pt18.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt18.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt18.2: [2020-01-02 01:11:44]: INFO - 开始登录
+已删除文件C:\Users\Bon\Downloads\台账明细数据.xls
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt18.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_ledger_detail_export_present: 台账管理明细中的导出当前</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt18.3')" >
+        pass</a>
+
+    <div id='div_pt18.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt18.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt18.3: [2020-01-02 01:12:14]: INFO - 开始登录
+已删除文件C:\Users\Bon\Downloads\台账明细数据.xls
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft18.4' class='none'>
+    <td class='failCase'><div class='testcase'>test_ledger_detail_processes_detail: 台账管理明细中的相关流程</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft18.4')" >
+        fail</a>
+
+    <div id='div_ft18.4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft18.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft18.4: [2020-01-02 01:12:45]: INFO - 开始登录
+Traceback (most recent call last):
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\cases\BusinessManagement\channel_resource_manage\channel_resource_manage_ledger_manage_test.py", line 108, in test_ledger_detail_processes_detail
+    self.assert_result_equal(depot_name,check_name,u'æç»ä¸­çç¸å³æµç¨')
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\pages\base_page.py", line 676, in assert_result_equal
+    self.assertEqual(expected,actual)
+AssertionError: u'1' != u'\u6e56\u5357\u7701\u4ed3\u5e93'
+- 1
++ æ¹åçä»åº
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt18.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_ledger_detail_search_detail: 台账管理明细中的查询</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt18.5')" >
+        pass</a>
+
+    <div id='div_pt18.5' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt18.5').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt18.5: [2020-01-02 01:13:09]: INFO - 开始登录
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt18.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_ledger_detil_print: 台账管理明细中的打印</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt18.6')" >
+        pass</a>
+
+    <div id='div_pt18.6' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt18.6').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt18.6: [2020-01-02 01:13:35]: INFO - 开始登录
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt18.7' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_ledger_export_all: 台账管理导出全部</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt18.7')" >
+        pass</a>
+
+    <div id='div_pt18.7' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt18.7').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt18.7: [2020-01-02 01:14:07]: INFO - 开始登录
+已删除文件C:\Users\Bon\Downloads\台账管理数据.xls
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt18.8' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_ledger_export_present: 台账管理导出当前</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt18.8')" >
+        pass</a>
+
+    <div id='div_pt18.8' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt18.8').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt18.8: [2020-01-02 01:14:37]: INFO - 开始登录
+已删除文件C:\Users\Bon\Downloads\台账管理数据.xls
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt18.9' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_ledger_print: 台账管理打印</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt18.9')" >
+        pass</a>
+
+    <div id='div_pt18.9' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt18.9').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt18.9: [2020-01-02 01:15:06]: INFO - 开始登录
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft18.10' class='none'>
+    <td class='errorCase'><div class='testcase'>test_ledger_reset: 台账管理重置</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft18.10')" >
+        error</a>
+
+    <div id='div_ft18.10' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft18.10').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft18.10: [2020-01-02 01:15:32]: INFO - 开始登录
+Traceback (most recent call last):
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\cases\BusinessManagement\channel_resource_manage\channel_resource_manage_ledger_manage_test.py", line 34, in test_ledger_reset
+    self.input_search_information(info_dict,choose_dict,{})
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\pages\base_page.py", line 657, in input_search_information
+    self.choose_more_option_by_inside_text(choose_dict)
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\pages\base_page.py", line 417, in choose_more_option_by_inside_text
+    self.click_option_by_inside_text_for_more_option(key,value)
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\pages\base_page.py", line 410, in click_option_by_inside_text_for_more_option
+    self.find_element_for_inside_text(menu_name).click()
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\pages\base_page.py", line 343, in find_element_for_inside_text
+    return self.find_element_for_text(element_inside_loc %inside_text)
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\pages\base_page.py", line 320, in find_element_for_text
+    visible_element=WebDriverWait(self.driver,15).until(EC.visibility_of_element_located((By.XPATH,element_loc)))
+  File "D:\python27\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+TimeoutException: Message: 
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft18.11' class='none'>
+    <td class='errorCase'><div class='testcase'>test_search_ledger: 台账管理查询</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft18.11')" >
+        error</a>
+
+    <div id='div_ft18.11' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft18.11').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft18.11: [2020-01-02 01:16:12]: INFO - 开始登录
+Traceback (most recent call last):
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\cases\BusinessManagement\channel_resource_manage\channel_resource_manage_ledger_manage_test.py", line 21, in test_search_ledger
+    self.input_search_information(info_dict,choose_dict,{})
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\pages\base_page.py", line 657, in input_search_information
+    self.choose_more_option_by_inside_text(choose_dict)
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\pages\base_page.py", line 417, in choose_more_option_by_inside_text
+    self.click_option_by_inside_text_for_more_option(key,value)
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\pages\base_page.py", line 410, in click_option_by_inside_text_for_more_option
+    self.find_element_for_inside_text(menu_name).click()
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\pages\base_page.py", line 343, in find_element_for_inside_text
+    return self.find_element_for_text(element_inside_loc %inside_text)
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\pages\base_page.py", line 320, in find_element_for_text
+    visible_element=WebDriverWait(self.driver,15).until(EC.visibility_of_element_located((By.XPATH,element_loc)))
+  File "D:\python27\lib\site-packages\selenium\webdriver\support\wait.py", line 80, in until
+    raise TimeoutException(message, screen, stacktrace)
+TimeoutException: Message: 
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='errorClass'>
+    <td>BusinessManagement.channel_resource_manage.channel_terminal_repair_manage_test.channelTerminalRepairOrderTest: 渠道终端管理维修管理测试</td>
+    <td>5</td>
+    <td>4</td>
+    <td>0</td>
+    <td>1</td>
+    <td><a href="javascript:showClassDetail('c19',5)">Detail</a></td>
+</tr>
+
+<tr id='pt19.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_open_and_close_search: 展开/收起搜索</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt19.1')" >
+        pass</a>
+
+    <div id='div_pt19.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt19.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt19.1: [2020-01-02 01:16:51]: INFO - 开始登录
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft19.2' class='none'>
+    <td class='errorCase'><div class='testcase'>test_repair_order_check_detail: 维修工单查看</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft19.2')" >
+        error</a>
+
+    <div id='div_ft19.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft19.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft19.2: [2020-01-02 01:17:17]: INFO - 开始登录
+Traceback (most recent call last):
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\cases\BusinessManagement\channel_resource_manage\channel_terminal_repair_manage_test.py", line 30, in test_repair_order_check_detail
+    self.open_repair_manage(self.repair_list)
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\pages\Business_management\channel_resource_manage_page\channel_terminal_repair_manage_page.py", line 14, in open_repair_manage
+    self.click_button_for_one(u'å±å¼')
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\pages\base_page.py", line 431, in click_button_for_one
+    self.find_element_for_text(button_loc %button).click()
+  File "D:\python27\lib\site-packages\selenium\webdriver\remote\webelement.py", line 80, in click
+    self._execute(Command.CLICK_ELEMENT)
+  File "D:\python27\lib\site-packages\selenium\webdriver\remote\webelement.py", line 633, in _execute
+    return self._parent.execute(command, params)
+  File "D:\python27\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "D:\python27\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+WebDriverException: Message: unknown error: Element &lt;span&gt;...&lt;/span&gt; is not clickable at point (1135, 160). Other element would receive the click: &lt;div class="el-loading-mask gb-loading is-fullscreen el-loading-fade-leave el-loading-fade-leave-active" style="background-color: rgba(0, 0, 0, 0); z-index: 2007;"&gt;...&lt;/div&gt;
+  (Session info: chrome=70.0.3538.67)
+  (Driver info: chromedriver=73.0.3683.68 (47787ec04b6e38e22703e856e101e840b65afe72),platform=Windows NT 10.0.17134 x86_64)
+
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt19.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_repair_order_reset: 维修工单重置</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt19.3')" >
+        pass</a>
+
+    <div id='div_pt19.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt19.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt19.3: [2020-01-02 01:17:38]: INFO - 开始登录
+(u'3', u'2')
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt19.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_repair_order_search: 维修工单查询</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt19.4')" >
+        pass</a>
+
+    <div id='div_pt19.4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt19.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt19.4: [2020-01-02 01:18:10]: INFO - 开始登录
+(u'3', u'0')
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt19.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_repair_order_warn: 一键提醒</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt19.5')" >
+        pass</a>
+
+    <div id='div_pt19.5' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt19.5').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt19.5: [2020-01-02 01:18:42]: INFO - 开始登录
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='failClass'>
+    <td>BusinessManagement.channel_resource_manage.channel_terminal_repair_manage_test.channelTerminalReplacementOrderTest: 渠道终端管理置换工单测试</td>
+    <td>1</td>
+    <td>0</td>
+    <td>1</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c20',1)">Detail</a></td>
+</tr>
+
+<tr id='ft20.1' class='none'>
+    <td class='failCase'><div class='testcase'>test_replacement_order_search: 置换工单查询</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft20.1')" >
+        fail</a>
+
+    <div id='div_ft20.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft20.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft20.1: [2020-01-02 01:19:10]: INFO - 开始登录
+(u'0', u'0')
+Traceback (most recent call last):
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\cases\BusinessManagement\channel_resource_manage\channel_terminal_repair_manage_test.py", line 81, in test_replacement_order_search
+    self.assert_result_not_equal(old_count,new_count,u'ç½®æ¢å·¥åæ¥è¯¢')
+  File "E:\auto_web\genlot_vlt10\genlot_vlt\pages\base_page.py", line 684, in assert_result_not_equal
+    self.assertNotEqual(expected,actual)
+AssertionError: u'0' == u'0'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='total_row'>
+    <td>Total</td>
+    <td>100</td>
+    <td>55</td>
+    <td>7</td>
+    <td>38</td>
+    <td>&nbsp;</td>
+</tr>
+</table>
+
+<div id='ending'>&nbsp;</div>
+
+</body>
+</html>
